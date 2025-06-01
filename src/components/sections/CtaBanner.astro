@@ -67,6 +67,7 @@ const containerBgColor = containerBgColors[background as keyof typeof containerB
             <h2 
                 class:list={[headlineColor]}
                 data-aos="fade-up"
+                class="text-balance leading-[1.2em]"
             >
                 {title}
             </h2>
@@ -89,9 +90,10 @@ const containerBgColor = containerBgColors[background as keyof typeof containerB
                 >
                     <Button
                         href={button.link}
-                        variant={button.variant || 'primary'}
+                        variant={'secondaryonwhite'}
                         target={button.target || '_self'}
                         size="md"
+                        class="text-black border-black"
                     >
                         {button.text}
                     </Button>

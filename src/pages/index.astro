@@ -12,26 +12,29 @@ import CtaBanner from '@components/sections/CtaBanner.astro';
 import Faqs from '@components/sections/Faqs.astro';
 import { faqLists } from '@data/faqs';
 import RecentPosts from '@components/sections/RecentPosts.astro';
-import heroImage from '../assets/images/home/default-hero-2.jpg';
+import heroImage from '@assets/images/home/heroimage.png';
 import styleGuideImage from '../assets/images/home/developer.jpg';
+import Waitlist from '@components/sections/Waitlist.astro';
 
-const seoTitle = "Modern, High-Performance Astro Theme";
-const seoDescription = "A modern, high-performance Astro theme for developer portfolios and documentation sites.";
+const seoTitle = "The Local Link to Your City";
+const seoDescription = "The local link to your city";
 
 const heroContent = {
-    title: 'The Foundation for Beautiful Astro JS Websites',
-    description: 'Titan Core is a minimal, performance-focused Astro JS theme that serves as the perfect foundation for your next web project. Built with clean code and modern best practices, it\'s designed to be extended and customized to your specific needs.',
+    title: 'The Local Link to all your needs in your town.',
+    description: 'Find restaurants, shops, services, and more—all in one place. Support your community and explore what your town has to offer with DailyBazzar.',
     buttons: [
         {
-            text: 'Get Started',
-            link: '/contact',
-            target: '_self'
+            text: 'List your business',
+            link: 'https://forms.gle/ZcSvFK2WGuXW2PUK6',
+            target: '_blank',
+            variant: 'secondary'
         },
         {
-            text: 'View on GitHub',
-            link: 'https://github.com/rspisarski/titan-core',
-            target: '_blank'
-        }
+            text: 'Join the Waitlist',
+            link: 'https://forms.gle/WtJgGuSuS3KQXJ1LA',
+            target: '_blank',
+            variant: 'primary'
+        },
     ],
     backgroundImage: heroImage,
     overlayOpacity: 0.2
@@ -50,14 +53,14 @@ const featuresSection = {
 }
 
 const FooterCta = {
-    eyebrow: "Join The Community",
-    title: ' Start Building With Titan Core Today',
-    description: 'Titan Core is open-source and constantly improving. Join our community of developers to contribute, get support, or showcase what you\'ve built.',
+    eyebrow: "FOR LOCAL BUSINESSES",
+    title: 'Own a local business? Join our business waitlist!',
+    description: 'Be among the first to list your business and reach more local customers when we launch. Sign up now to get early access and exclusive benefits.',
     hideCta: false,
     button: {
-        text: 'Download Titan Core',
-        link: 'https://github.com/rspisarski/titan-core',
-        target: '_blank'
+        text: 'Join Business Waitlist',
+        link: 'https://forms.gle/ZcSvFK2WGuXW2PUK6',
+        target: '_self'
     }
 }
 
@@ -96,12 +99,12 @@ const sideBySideStats = {
 };
 
 const mainCta = {
-    eyebrow: "Build Blocks",
-    title: "Ready-to-Use Components",
-    description: "Save development time with our pre-built, accessible components. Each one is designed to integrate seamlessly with your projects while maintaining excellent performance.",
+    eyebrow: "What do we exactly do",
+    title: "Linking all of your town's services in one app",
+    description: "We are a local link to all of your town's services in one app. Our goal is to host all of your town's services, such as your trusted shops, maids, plumbers etc., all in one app, so you can book and track them from one place.",
     button: {
-        text: "View All Components",
-        link: "/components",
+        text: "Learn more about us",
+        link: "/about",
         variant: "primary" as const,
         target: "_self" as const
     }
@@ -134,11 +137,12 @@ const recentPostsSection = {
 
 <Layout footerCta={FooterCta} title={seoTitle} description={seoDescription}>
     <Hero content={heroContent} />
-    <Features content={featuresSection} padding="base" background="light" />
-    <RecentPosts content={recentPostsSection} background="base" padding="base" postsToShow={3} category="Theme Usage"/>
-    <SplitPanel content={styleGuideSection} imagePosition="right" background="light" padding="base" />
+    <!-- <Features content={featuresSection} padding="base" background="light" /> -->
+    <!-- <RecentPosts content={recentPostsSection} background="base" padding="base" postsToShow={3} category="Theme Usage"/> -->
+    <!-- <SplitPanel content={styleGuideSection} imagePosition="right" background="light" padding="base" /> -->
     <CtaBanner content={mainCta} variant="contained" background="light" paddingBottom="base" />
-    <Logos content={logosSection} background="base" padding='small'/>
-    <Stats content={sideBySideStats} background='dark' padding="base"/>
-    <Faqs content={faqsSection} background="base" padding="base" />
+    <Waitlist />
+    <!-- <Logos content={logosSection} background="base" padding='small'/> -->
+    <!-- <Stats content={sideBySideStats} background='dark' padding="base"/> -->
+    <!-- <Faqs content={faqsSection} background="base" padding="base" /> -->
 </Layout>

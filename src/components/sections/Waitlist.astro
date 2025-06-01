@@ -1,0 +1,45 @@
+---
+import Input from '@components/ui/form/Input.astro';
+import Button from '@components/ui/Button.astro';
+import { Image } from 'astro:assets';
+import heroImage from '../../assets/images/home/heroimage.png';
+---
+
+<section class="relative bg-white py-16">
+  <div class="site-container px-8">
+    <div class="grid gap-12 md:grid-cols-2 items-center">
+      <!-- Left: Text and Form -->
+      <div>
+        <h2 class="text-3xl font-[600] mb-4">Join the waitlist today!</h2>
+        <p class="mb-6 text-lg text-gray-700">Be the first to know when we launch and get exclusive early access offers and features</p>
+        <!-- <form class="flex flex-col sm:flex-row gap-4 max-w-md">
+          <Input
+            label="Email"
+            type="email"
+            id="waitlist-email"
+            name="email"
+            placeholder="Enter your email"
+            required={true}
+            background="light"
+            class="flex-1"
+          />
+        </form> -->
+        <a href="https://forms.gle/WtJgGuSuS3KQXJ1LA" target="_blank">
+            <Button variant="primary" class="min-w-[120px]">Join the Waitlist</Button>
+        </a>
+      </div>
+      <!-- Right: Image -->
+      <div class="relative aspect-[4/3] overflow-hidden rounded-xl border border-gray-200 shadow-lg">
+        <Image
+          src={heroImage}
+          alt={'Waitlist preview'}
+          width={800}
+          height={600}
+          class="w-full h-full object-cover"
+          quality={80}
+          format="webp"
+        />
+      </div>
+    </div>
+  </div>
+</section> 

@@ -1,7 +1,7 @@
 ---
 export interface Props {
   href?: string;
-  variant?: 'primary' | 'secondary' | 'accent' | 'ghostLight' | 'ghostDark';
+  variant?: 'primary' | 'secondary' | 'accent' | 'ghostLight' | 'ghostDark' | 'secondaryonwhite';
   size?: 'sm' | 'md' | 'lg';
   disabled?: boolean;
   class?: string;
@@ -24,11 +24,12 @@ const baseStyles = 'group relative inline-flex overflow-hidden items-center just
 
 
 const variants = {
-  primary: 'bg-primary text-white hover:bg-primary-light focus-visible:ring-primary hover:ring-2 hover:ring-primary hover:ring-offset-2',
-  secondary: 'bg-secondary text-white hover:bg-secondary-light focus-visible:ring-secondary hover:ring-2 hover:ring-secondary hover:ring-offset-2',
+  primary: 'bg-primary text-white text-sm hover:bg-primary-light focus-visible:ring-primary hover:ring-2 hover:ring-primary hover:ring-offset-2',
+  secondary: 'text-white text-sm border-white border-1 backdrop-blur-md hover:bg-secondary-light focus-visible:ring-secondary hover:ring-2 hover:ring-secondary hover:ring-offset-2',
   accent: 'bg-accent text-white hover:opacity-90 focus-visible:ring-accent hover:ring-2 hover:ring-accent hover:ring-offset-2',
   ghostLight: 'text-white ring-2 ring-white focus-visible:ring-white hover:ring-2 hover:ring-black hover:ring-offset-2',
   ghostDark: 'text-body-base ring-2 ring-text focus-visible:ring-text hover:ring-2 hover:ring-black hover:ring-offset-2',
+  secondaryonwhite: 'text-black border-black border-1 backdrop-blur-md hover:bg-secondary-light focus-visible:ring-secondary hover:ring-2 hover:ring-secondary hover:ring-offset-2',
 };
 
 const sizes = {
