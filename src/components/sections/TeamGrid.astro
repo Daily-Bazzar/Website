@@ -4,6 +4,10 @@ import { getPaddingClass } from '@utils/styleUtils';
 import type { PaddingSize } from '@utils/styleUtils';
 import { Image } from 'astro:assets';
 import { Linkedin, Mail } from 'lucide-astro';
+import benjaminImg from '../../content/team/images/benjamin.jpg';
+import tinaImg from '../../content/team/images/tina.png';
+import manishImg from '../../content/team/images/manish.jpg';
+import bivobImg from '../../content/team/images/bivob.jpeg';
 
 interface Props {
     padding?: PaddingSize;
@@ -35,6 +39,22 @@ const others = sortedTeamMembers.filter(
         !member.data.jobTitle?.toLowerCase().includes('founder') &&
         !(/chief technology officer|cto|chief design officer|cdo/i.test(member.data.jobTitle || ''))
 );
+
+const localImageMap: Record<string, any> = {
+  'benjamin.jpg': benjaminImg,
+  'tina.png': tinaImg,
+  'manish.jpg': manishImg,
+  'bivob.jpeg': bivobImg,
+};
+
+// Helper to resolve image for founders/leads
+function resolveImage(headshot: any) {
+  if (typeof headshot === 'string' && headshot.startsWith('./images/')) {
+    const key = headshot.replace('./images/', '');
+    return localImageMap[key] || headshot;
+  }
+  return headshot;
+}
 ---
 
 <section class:list={["relative", paddingClass]}>
@@ -54,7 +74,7 @@ const others = sortedTeamMembers.filter(
                             <div class="relative mb-4 flex items-center justify-center w-32 h-32 md:w-36 md:h-36 rounded-full bg-primary/10">
                                 {member.data.headshot ? (
                                     <Image
-                                        src={member.data.headshot}
+                                        src={resolveImage(member.data.headshot)}
                                         alt={member.data.name}
                                         width={144}
                                         height={144}
@@ -103,7 +123,7 @@ const others = sortedTeamMembers.filter(
                             <div class="relative mb-4 flex items-center justify-center w-32 h-32 md:w-36 md:h-36 rounded-full bg-primary/10">
                                 {member.data.headshot ? (
                                     <Image
-                                        src={member.data.headshot}
+                                        src={resolveImage(member.data.headshot)}
                                         alt={member.data.name}
                                         width={144}
                                         height={144}
@@ -152,7 +172,7 @@ const others = sortedTeamMembers.filter(
                             <span class="absolute inset-0 -mt-12 h-400 w-1/2 translate-x-[250%] rotate-12 bg-white opacity-20  group-hover:transition-all  group-hover:duration-300 ease-out group-hover:translate-x-[-250%] z-10" />
                             {member.data.headshot ? (
                                 <Image
-                                    src={member.data.headshot}
+                                    src={resolveImage(member.data.headshot)}
                                     alt={member.data.name}
                                     width={896}
                                     height={1280}
