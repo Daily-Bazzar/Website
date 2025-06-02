@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import { getPaddingClass } from '@utils/styleUtils';
 import type { PaddingSize } from '@utils/styleUtils';
 import { Image } from 'astro:assets';
+import { Linkedin, Mail } from 'lucide-astro';
 
 interface Props {
     padding?: PaddingSize;
@@ -19,48 +20,175 @@ const teamMembers = await getCollection('team', ({ data }) => {
 
 // Sort team members by order
 const sortedTeamMembers = teamMembers.sort((a, b) => a.data.order - b.data.order);
+
+// Separate founders, team leads, and other team members
+const founders = sortedTeamMembers.filter(
+    (member) => member.data.jobTitle?.toLowerCase().includes('founder')
+);
+const leads = sortedTeamMembers.filter(
+    (member) =>
+        /chief technology officer|cto|chief design officer|cdo/i.test(member.data.jobTitle || '') &&
+        !member.data.jobTitle?.toLowerCase().includes('founder')
+);
+const others = sortedTeamMembers.filter(
+    (member) =>
+        !member.data.jobTitle?.toLowerCase().includes('founder') &&
+        !(/chief technology officer|cto|chief design officer|cdo/i.test(member.data.jobTitle || ''))
+);
 ---
 
-<section class:list={['relative', paddingClass]}>
+<section class:list={["relative", paddingClass]}>
     <div class="site-container mx-auto px-4">
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 xl:gap-x-8 xl:gap-y-14">
-            {
-                sortedTeamMembers.map((member, index) => (
-                    <div
-                        class="flex flex-col group"
-                        data-aos="fade-up"
-                        data-aos-delay={index * 100}
-                        data-aos-duration="800"
-                    >
-                        <a href={`/team/${member.id}`} class="flex flex-col group rounded-md">
-                            <div class="relative mb-4 overflow-hidden rounded-md">
-                                <span class="absolute inset-0 -mt-12 h-400 w-1/2 translate-x-[250%] rotate-12 bg-white opacity-20  group-hover:transition-all  group-hover:duration-300 ease-out group-hover:translate-x-[-250%] z-10" />
+        {founders.length > 0 && (
+            <>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-2 mt-8 tracking-tight text-primary">MEET OUR FOUNDERS</h2>
+                <div class="w-24 h-1 bg-pink-400 mx-auto mb-10 rounded-full" />
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                    {founders.map((member, index) => (
+                        <div
+                            class="flex flex-col items-center bg-white rounded-2xl shadow-xl p-8 border border-gray-100 hover:shadow-2xl transition-shadow duration-300"
+                            data-aos="fade-up"
+                            data-aos-delay={index * 100}
+                            data-aos-duration="800"
+                        >
+                            <div class="relative mb-4 flex items-center justify-center w-32 h-32 md:w-36 md:h-36 rounded-full bg-primary/10">
                                 {member.data.headshot ? (
                                     <Image
                                         src={member.data.headshot}
-                                        alt=""
-                                        width={896}
-                                        height={1280}
-                                        quality={80}
+                                        alt={member.data.name}
+                                        width={144}
+                                        height={144}
+                                        quality={90}
                                         format="webp"
-                                        class="w-full h-auto aspect-[3/4] object-cover rounded-md group-hover:scale-[1.02] hover:brightness-110 transition-all duration-500 ease-in-out"
+                                        class="rounded-full object-cover w-28 h-28 md:w-32 md:h-32 border-4 border-primary shadow-lg"
                                         loading="eager"
                                         decoding="async"
                                     />
                                 ) : (
-                                    <div class="w-full aspect-[3/4] bg-gray-200 rounded-md flex items-center justify-center">
+                                    <div class="w-28 h-28 md:w-32 md:h-32 rounded-full bg-gray-200 flex items-center justify-center">
                                         <span class="text-gray-400">No Image</span>
                                     </div>
                                 )}
                             </div>
-                            <h3 class="text-h5 font-medium transition-colors duration-500 group-hover:text-primary">
+                            <h3 class="text-lg md:text-xl font-extrabold text-primary mb-1 tracking-wide uppercase text-center">{member.data.name}</h3>
+                            <p class="text-base font-semibold text-gray-700 mb-2 text-center">{member.data.jobTitle}</p>
+                            {member.data.email && (
+                                <div class="flex items-center justify-center gap-2 text-gray-600 text-sm mb-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12H8m8 0a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+                                    <a href={`mailto:${member.data.email}`} class="hover:underline">{member.data.email}</a>
+                                </div>
+                            )}
+                            <div class="flex items-center justify-center gap-2 text-gray-600 text-sm mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657A8 8 0 118 0a8 8 0 019.657 16.657z" /></svg>
+                                <span>Nagaland</span>
+                            </div>
+                            <a href={`/team/${member.id}`} class="mt-2 px-6 py-2 rounded-md bg-primary text-white font-semibold shadow hover:bg-primary-dark transition-colors">More Detail</a>
+                        </div>
+                    ))}
+                </div>
+            </>
+        )}
+        {leads.length > 0 && (
+            <>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-2 mt-8 tracking-tight text-primary">TEAM LEADS</h2>
+                <div class="w-24 h-1 bg-pink-400 mx-auto mb-10 rounded-full" />
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                    {leads.map((member, index) => (
+                        <div
+                            class="flex flex-col items-center bg-white rounded-2xl shadow-xl p-8 border border-gray-100 hover:shadow-2xl transition-shadow duration-300"
+                            data-aos="fade-up"
+                            data-aos-delay={index * 100}
+                            data-aos-duration="800"
+                        >
+                            <div class="relative mb-4 flex items-center justify-center w-32 h-32 md:w-36 md:h-36 rounded-full bg-primary/10">
+                                {member.data.headshot ? (
+                                    <Image
+                                        src={member.data.headshot}
+                                        alt={member.data.name}
+                                        width={144}
+                                        height={144}
+                                        quality={90}
+                                        format="webp"
+                                        class="rounded-full object-cover w-28 h-28 md:w-32 md:h-32 border-4 border-primary shadow-lg"
+                                        loading="eager"
+                                        decoding="async"
+                                    />
+                                ) : (
+                                    <div class="w-28 h-28 md:w-32 md:h-32 rounded-full bg-gray-200 flex items-center justify-center">
+                                        <span class="text-gray-400">No Image</span>
+                                    </div>
+                                )}
+                            </div>
+                            <h3 class="text-lg md:text-xl font-extrabold text-primary mb-1 tracking-wide uppercase text-center">{member.data.name}</h3>
+                            <p class="text-base font-semibold text-gray-700 mb-2 text-center">{member.data.jobTitle}</p>
+                            {member.data.email && (
+                                <div class="flex items-center justify-center gap-2 text-gray-600 text-sm mb-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12H8m8 0a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+                                    <a href={`mailto:${member.data.email}`} class="hover:underline">{member.data.email}</a>
+                                </div>
+                            )}
+                            <div class="flex items-center justify-center gap-2 text-gray-600 text-sm mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657A8 8 0 118 0a8 8 0 019.657 16.657z" /></svg>
+                                <span>Nagaland</span>
+                            </div>
+                            <a href={`/team/${member.id}`} class="mt-2 px-6 py-2 rounded-md bg-primary text-white font-semibold shadow hover:bg-primary-dark transition-colors">More Detail</a>
+                        </div>
+                    ))}
+                </div>
+            </>
+        )}
+        <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-2 mt-8 tracking-tight text-primary">MEET OUR TEAM</h2>
+        <div class="w-24 h-1 bg-pink-400 mx-auto mb-10 rounded-full" />
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 xl:gap-x-8 xl:gap-y-14">
+            {others.map((member, index) => (
+                <div
+                    class="flex flex-col group bg-white rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow duration-300"
+                    data-aos="fade-up"
+                    data-aos-delay={index * 100}
+                    data-aos-duration="800"
+                >
+                    <a href={`/team/${member.id}`} class="flex flex-col group rounded-xl">
+                        <div class="relative mb-4 overflow-hidden rounded-t-xl">
+                            <span class="absolute inset-0 -mt-12 h-400 w-1/2 translate-x-[250%] rotate-12 bg-white opacity-20  group-hover:transition-all  group-hover:duration-300 ease-out group-hover:translate-x-[-250%] z-10" />
+                            {member.data.headshot ? (
+                                <Image
+                                    src={member.data.headshot}
+                                    alt={member.data.name}
+                                    width={896}
+                                    height={1280}
+                                    quality={80}
+                                    format="webp"
+                                    class="w-full h-auto aspect-[3/4] object-cover rounded-t-xl group-hover:scale-[1.02] hover:brightness-110 transition-all duration-500 ease-in-out"
+                                    loading="eager"
+                                    decoding="async"
+                                />
+                            ) : (
+                                <div class="w-full aspect-[3/4] bg-gray-200 rounded-t-xl flex items-center justify-center">
+                                    <span class="text-gray-400">No Image</span>
+                                </div>
+                            )}
+                        </div>
+                        <div class="px-4 pb-4 flex flex-col items-center">
+                            <h3 class="text-lg font-semibold transition-colors duration-500 group-hover:text-primary text-center">
                                 {member.data.name}
                             </h3>
-                            <p class="text-xsmall text-body-base">{member.data.jobTitle}</p>
-                        </a>
-                    </div>
-                ))
-            }
+                            <p class="text-sm text-gray-600 mb-2 text-center">{member.data.jobTitle}</p>
+                            <div class="flex gap-4 mt-2 mb-2">
+                                {member.data.linkedin && (
+                                    <a href={member.data.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="text-blue-700 hover:text-blue-900">
+                                        <Linkedin size={20} strokeWidth={1.5} />
+                                    </a>
+                                )}
+                                {member.data.email && (
+                                    <a href={`mailto:${member.data.email}`} aria-label="Email" class="text-gray-700 hover:text-primary">
+                                        <Mail size={20} strokeWidth={1.5} />
+                                    </a>
+                                )}
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            ))}
         </div>
     </div>
 </section>

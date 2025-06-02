@@ -1,12 +1,12 @@
 ---
 name: "Soumar Jyoti Borah"
-headshot: "https://images.unsplash.com/photo-1748077472389-017a7766cc9f?q=80&w=2700&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+headshot: "./images/soumar.jpg"
 jobTitle: "Product Management Intern"
 publish: true
-order: 9
-linkedinUsername: ""
-email: ""
+order: 4
+linkedin: "https://www.linkedin.com/in/soumar-jyoti-borah-b6aba6326?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+email: "sj.dailybazzar@gmail.com"
 xSocialUsername: ""
 ---
 
-Soumar Jyoti Borah supports product management and strategy as an intern at DailyBazzar. 
+Soumar is a Product Management Intern from IIT Kharagpur. 

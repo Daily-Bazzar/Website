@@ -1,12 +1,12 @@
 ---
 name: "Keshab Kayal"
-headshot: "https://images.unsplash.com/photo-1748077472389-017a7766cc9f?q=80&w=2700&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-jobTitle: "Junior Developer / Intern"
+headshot: "./images/keshab.jpg"
+jobTitle: "Software Development Engineer Intern"
 publish: true
-order: 6
-linkedinUsername: ""
-email: ""
+order: 7
+linkedin: "https://www.linkedin.com/in/keshab-kayal-2a65a8343?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+email: "Keshab.dailybazzar@gmail.com"
 xSocialUsername: ""
 ---
 
-Keshab Kayal contributes to DailyBazzar as a Junior Developer and Intern. 
+Keshab is a Software Development Engineer Intern from IIT Kharagpur. 

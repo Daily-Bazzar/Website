@@ -1,12 +1,12 @@
 ---
 name: "Shrewa Shree Konika P Bharati"
-headshot: "https://images.unsplash.com/photo-1748077472389-017a7766cc9f?q=80&w=2700&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-jobTitle: "Junior Developer / Intern"
+headshot: "./images/shrewa.png"
+jobTitle: "Software Development Engineer Intern"
 publish: true
-order: 5
-linkedinUsername: ""
-email: ""
+order: 6
+linkedin: "https://www.linkedin.com/in/shrewa-shree-konika-p-bharati-768457258/"
+email: "shrewa.dailybazzar@gmail.com"
 xSocialUsername: ""
 ---
 
-Shrewa Shree Konika P Bharati contributes to DailyBazzar as a Junior Developer and Intern. 
+Shrewa is a Software Development Engineer Intern from IIT Kharagpur. 
