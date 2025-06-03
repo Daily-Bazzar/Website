@@ -545,6 +545,11 @@ body {
     font-family: 'Urbanist', sans-serif;
 }
 
+*::selection {
+    background: #6e4ebbaa;
+    color: white;
+}
+
 [x-cloak] {
     display: none !important;
 }

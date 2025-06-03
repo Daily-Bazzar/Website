@@ -23,7 +23,7 @@ const isCurrentPage = (link: string) => {
 
 <header class="fixed top-0 z-50 w-full left-0">
     <div class="site-container mx-auto px-4 mt-4">
-        <div class="flex justify-between items-center bg-white py-2 rounded-lg px-2 border-black border">
+        <div class="flex justify-between items-center bg-white/75 py-2 rounded-lg px-2 border-black border">
             <Logo />
             <nav class="relative flex items-center gap-2 lg:gap-8" aria-label="Site Navigation">
                 {/* Desktop Menu */}
@@ -35,7 +35,7 @@ const isCurrentPage = (link: string) => {
                                     <a
                                         href={item.link}
                                         class:list={[
-                                            'text-small font-medium rounded-md px-2 py-1 focus:outline-none focus:ring-2 focus:ring-nav-text-active',
+                                            'text-small font-semibold rounded-md px-2 py-1 focus:outline-none focus:ring-2 text-black  focus:ring-nav-text-active',
                                             isCurrentPage(item.link)
                                                 ? 'text-nav-text-current font-semibold'
                                                 : 'text-nav-text hover:text-nav-text-hover',
