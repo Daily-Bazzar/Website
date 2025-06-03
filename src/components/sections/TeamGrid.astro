@@ -36,10 +36,17 @@ const leads = sortedTeamMembers.filter(
         /chief technology officer|cto|chief design officer|cdo/i.test(member.data.jobTitle || '') &&
         !member.data.jobTitle?.toLowerCase().includes('founder')
 );
-const others = sortedTeamMembers.filter(
+const othersInTech = sortedTeamMembers.filter(
     (member) =>
         !member.data.jobTitle?.toLowerCase().includes('founder') &&
-        !(/chief technology officer|cto|chief design officer|cdo/i.test(member.data.jobTitle || ''))
+        !(/chief technology officer|cto|chief design officer|cdo/i.test(member.data.jobTitle || '')) &&
+        member.data?.team === 'technology'
+);
+const othersInOps = sortedTeamMembers.filter(
+    (member) =>
+        !member.data.jobTitle?.toLowerCase().includes('founder') &&
+        !(/chief technology officer|cto|chief design officer|cdo/i.test(member.data.jobTitle || '')) &&
+        member.data.team === 'operations'
 );
 
 const localImageMap: Record<string, any> = {
@@ -165,55 +172,110 @@ function resolveImage(headshot: any) {
                 </div>
             </>
         )}
-        <h2 class="text-3xl md:text-4xl font-semibold text-center mb-4 mt-8 tracking-tight text-primary">Meet Our Team</h2>
-        {/* <div class="w-24 h-1 bg-pink-400 mx-auto mb-10 rounded-full" /> */}
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 xl:gap-x-8 xl:gap-y-14">
-            {others.map((member, index) => (
-                <div
-                    class="flex flex-col group col-span-2 rounded-xl items-center"
-                    data-aos="fade-up"
-                    data-aos-delay={index * 100}
-                    data-aos-duration="800"
-                >
-                    <div class="pl-4 pr-2 py-4">
-                        <div class="flex items-center justify-center w-32 h-32 md:w-40 md:h-40 rounded-full bg-transparent">
-                            {member.data.headshot ? (
-                                <Image
-                                    src={resolveImage(member.data.headshot)}
-                                    alt={member.data.name}
-                                    width={96}
-                                    height={96}
-                                    quality={80}
-                                    format="webp"
-                                    class="rounded-full object-cover w-32 h-32 md:w-40 md:h-40"
-                                    loading="eager"
-                                    decoding="async"
-                                />
-                            ) : (
-                                <div class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gray-200 flex items-center justify-center">
-                                    <span class="text-gray-400">No Image</span>
-                                </div>
-                            )}
+        <div class="flex flex-col gap-4 items-center">
+            <h2 class="text-3xl md:text-4xl font-semibold text-center mt-8 tracking-tight text-primary">Technology Team</h2>
+            {/* <div class="w-24 h-1 bg-pink-400 mx-auto mb-10 rounded-full" /> */}
+            <div class="flex gap-16 justify-between w-full max-w-[72rem]">
+                {othersInTech.map((member, index) => (
+                    <div
+                        class="flex flex-col group col-span-1 rounded-xl items-center"
+                        data-aos="fade-up"
+                        data-aos-delay={index * 100}
+                        data-aos-duration="800"
+                    >
+                        <div class="pl-4 pr-2 py-4">
+                            <div class="flex items-center justify-center w-32 h-32 md:w-40 md:h-40 rounded-full bg-transparent">
+                                {member.data.headshot ? (
+                                    <Image
+                                        src={resolveImage(member.data.headshot)}
+                                        alt={member.data.name}
+                                        width={96}
+                                        height={96}
+                                        quality={80}
+                                        format="webp"
+                                        class="rounded-full object-cover w-32 h-32 md:w-40 md:h-40"
+                                        loading="eager"
+                                        decoding="async"
+                                    />
+                                ) : (
+                                    <div class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gray-200 flex items-center justify-center">
+                                        <span class="text-gray-400">No Image</span>
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                        <div class="px-2 py-4 flex flex-col items-center flex-1">
+                            <h3 class="text-base font-medium text-primary mb-1">{member.data.name}</h3>
+                            <p class="text-sm text-gray-400 mb-2">{member.data.jobTitle}</p>
+                            <div class="flex gap-4 mt-2 mb-2">
+                                {member.data.linkedin && (
+                                    <a href={member.data.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="text-blue-700 hover:text-blue-900">
+                                        <Linkedin size={24} />
+                                    </a>
+                                )}
+                                {member.data.email && (
+                                    <a href={`mailto:${member.data.email}`} aria-label="Email" class="text-gray-700 hover:text-primary">
+                                        <Icon name="mail" size={24} />
+                                    </a>
+                                )}
+                            </div>
                         </div>
                     </div>
-                    <div class="px-2 py-4 flex flex-col items-center flex-1">
-                        <h3 class="text-base font-medium text-primary mb-1">{member.data.name}</h3>
-                        <p class="text-sm text-gray-400 mb-2">{member.data.jobTitle}</p>
-                        <div class="flex gap-4 mt-2 mb-2">
-                            {member.data.linkedin && (
-                                <a href={member.data.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="text-blue-700 hover:text-blue-900">
-                                    <Linkedin size={24} />
-                                </a>
-                            )}
-                            {member.data.email && (
-                                <a href={`mailto:${member.data.email}`} aria-label="Email" class="text-gray-700 hover:text-primary">
-                                    <Icon name="mail" size={24} />
-                                </a>
-                            )}
+                ))}
+            </div>
+        </div>
+
+        <div>
+            <h2 class="text-3xl md:text-4xl font-semibold text-center mb-4 mt-8 tracking-tight text-primary">Operations Team</h2>
+            {/* <div class="w-24 h-1 bg-pink-400 mx-auto mb-10 rounded-full" /> */}
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 xl:gap-x-8 xl:gap-y-14">
+                {othersInOps.map((member, index) => (
+                    <div
+                        class="flex flex-col group col-span-2 rounded-xl items-center"
+                        data-aos="fade-up"
+                        data-aos-delay={index * 100}
+                        data-aos-duration="800"
+                    >
+                        <div class="pl-4 pr-2 py-4">
+                            <div class="flex items-center justify-center w-32 h-32 md:w-40 md:h-40 rounded-full bg-transparent">
+                                {member.data.headshot ? (
+                                    <Image
+                                        src={resolveImage(member.data.headshot)}
+                                        alt={member.data.name}
+                                        width={96}
+                                        height={96}
+                                        quality={80}
+                                        format="webp"
+                                        class="rounded-full object-cover w-32 h-32 md:w-40 md:h-40"
+                                        loading="eager"
+                                        decoding="async"
+                                    />
+                                ) : (
+                                    <div class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-gray-200 flex items-center justify-center">
+                                        <span class="text-gray-400">No Image</span>
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                        <div class="px-2 py-4 flex flex-col items-center flex-1">
+                            <h3 class="text-base font-medium text-primary mb-1">{member.data.name}</h3>
+                            <p class="text-sm text-gray-400 mb-2">{member.data.jobTitle}</p>
+                            <div class="flex gap-4 mt-2 mb-2">
+                                {member.data.linkedin && (
+                                    <a href={member.data.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="text-blue-700 hover:text-blue-900">
+                                        <Linkedin size={24} />
+                                    </a>
+                                )}
+                                {member.data.email && (
+                                    <a href={`mailto:${member.data.email}`} aria-label="Email" class="text-gray-700 hover:text-primary">
+                                        <Icon name="mail" size={24} />
+                                    </a>
+                                )}
+                            </div>
                         </div>
                     </div>
-                </div>
-            ))}
+                ))}
+            </div>
         </div>
     </div>
 </section>

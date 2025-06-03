@@ -7,6 +7,7 @@ order: 0
 linkedin: "https://www.linkedin.com/in/shrewa-shree-konika-p-bharati-768457258/"
 email: "shrewa.dailybazzar@gmail.com"
 xSocialUsername: ""
+team: technology
 ---
 
 Shrewa is a Software Development Engineer Intern from IIT Kharagpur. 

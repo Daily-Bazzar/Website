@@ -7,6 +7,7 @@ order: 5
 linkedin: "https://www.linkedin.com/in/jeet-saha-85380a271"
 email: "jeet.dailybazzar@gmail.com"
 xSocialUsername: ""
+team: operations
 ---
 
 Jeet is a Product Management Intern from IIT Kharagpur. 

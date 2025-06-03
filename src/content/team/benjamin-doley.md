@@ -7,6 +7,7 @@ order: 1
 linkedinUsername: ""
 email: ""
 xSocialUsername: ""
+team: operations
 ---
 
 Benjamin Doley is the founder of DailyBazzar, leading the vision and strategy. 

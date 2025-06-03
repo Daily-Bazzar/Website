@@ -31,6 +31,7 @@ const team = defineCollection({
         z.object({
             name: z.string(),
             headshot: image().optional(),
+            team: z.enum(['technology', 'operations', 'design']).optional(),
             jobTitle: z.string(),
             email: z.string().optional(),
             linkedin: z.string().url().optional(),

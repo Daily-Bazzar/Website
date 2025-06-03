@@ -7,6 +7,7 @@ order: 4
 linkedinUsername: ""
 email: ""
 xSocialUsername: ""
+team: design
 ---
 
 Bivob Bhuyan shapes the visual and user experience of DailyBazzar as Chief Design Officer. 

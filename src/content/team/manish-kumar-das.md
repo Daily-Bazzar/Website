@@ -7,6 +7,7 @@ order: 3
 linkedinUsername: ""
 email: ""
 xSocialUsername: ""
+team: technology
 ---
 
 Manish Kumar Das leads the technology vision and development at DailyBazzar as CTO. 
