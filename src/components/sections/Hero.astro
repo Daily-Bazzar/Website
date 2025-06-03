@@ -1,6 +1,7 @@
 ---
 import Button from '@components/ui/Button.astro';
 import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon/components';
 
 interface HeroContent {
     title: string;
@@ -46,7 +47,7 @@ const opacity = content.overlayOpacity ?? 1; // Default opacity if not specified
 
     <div class="site-container mx-auto px-4 py-large relative z-10 flex flex-col md:items-center md:justify-center md:text-center gap-4">
         <h1 class="text-white text-5xl max-w-3xl text-balance leading-[.99em]" data-aos="fade-up">{content.title}</h1>
-        <p class="text-white text-md mt-2 text-balance" data-aos="fade-up" data-aos-delay="100">{content.description}</p>
+        <p class="text-white text-md max-w-3xl mt-2 text-balance" data-aos="fade-up" data-aos-delay="100">{content.description}</p>
         {content.buttons && content.buttons.length > 0 && (
             <div class="flex flex-wrap gap-4 mt-8" data-aos="fade-up">
                 {content.buttons.map((button) => (
@@ -54,8 +55,10 @@ const opacity = content.overlayOpacity ?? 1; // Default opacity if not specified
                         href={button.link}
                         target={button.target || '_self'}
                         variant={button.variant || 'secondary'}
+                        class="flex items-center gap-2"
                     >
                         {button.text}
+                        <Icon name="rightchevron" size={20} />
                     </Button>
                 ))}
             </div>
