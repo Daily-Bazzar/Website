@@ -192,7 +192,7 @@ function resolveImage(headshot: any) {
                         data-aos-duration="800"
                     >
                         <div class="pl-4 pr-2 py-4">
-                            <div class="flex items-center justify-center w-32 h-32 md:w-40 md:h-40 rounded-full bg-transparent">
+                            <div class="flex items-center border border-4 overflow-hidden border-primary/75 justify-center w-32 h-32 md:w-40 md:h-40 rounded-full bg-transparent">
                                 {member.data.headshot ? (
                                     <img
                                         src={member.data.headshot.src}
@@ -245,7 +245,7 @@ function resolveImage(headshot: any) {
                         data-aos-duration="800"
                     >
                         <div class="pl-4 pr-2 py-4">
-                            <div class="flex items-center justify-center w-32 h-32 md:w-40 md:h-40 rounded-full bg-transparent">
+                            <div class="flex items-center border border-4 overflow-hidden border-primary/75 justify-center w-32 h-32 md:w-40 md:h-40 rounded-full bg-transparent">
                                 {member.data.headshot ? (
                                     <img
                                         src={member.data.headshot.src}
@@ -254,7 +254,7 @@ function resolveImage(headshot: any) {
                                         height={96}
                                         // quality={80}
                                         // format="webp"
-                                        class="rounded-full object-cover w-32 h-32 md:w-40 md:h-40"
+                                        class="object-cover w-32 h-32 md:w-40 md:h-40"
                                         loading="eager"
                                         decoding="async"
                                     />
