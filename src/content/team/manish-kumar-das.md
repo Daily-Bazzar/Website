@@ -4,8 +4,8 @@ headshot: "./images/manish.jpg"
 jobTitle: "Chief Technology Officer (CTO)"
 publish: true
 order: 3
-linkedinUsername: ""
-email: ""
+linkedin: "https://www.linkedin.com/in/benjamin-doley-a51827238/"
+email: "benjamindoley00@gmail.com"
 xSocialUsername: ""
 team: technology
 ---
