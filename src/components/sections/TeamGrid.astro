@@ -7,7 +7,7 @@ import { Mail } from 'lucide-astro';
 import Linkedin from '../icons/linkedin.astro';
 import { Icon } from 'astro-icon/components';
 import benjaminImg from '../../content/team/images/benjamin.jpg';
-import tinaImg from '../../content/team/images/tina.png';
+import tinaImg from '../../content/team/images/tina.jpg';
 import manishImg from '../../content/team/images/manish.jpg';
 import bivobImg from '../../content/team/images/bivob.jpeg';
 
@@ -51,7 +51,7 @@ const othersInOps = sortedTeamMembers.filter(
 
 const localImageMap: Record<string, any> = {
   'benjamin.jpg': benjaminImg,
-  'tina.png': tinaImg,
+  'tina.jpg': tinaImg,
   'manish.jpg': manishImg,
   'bivob.jpeg': bivobImg,
 };
@@ -67,20 +67,20 @@ function resolveImage(headshot: any) {
 ---
 
 <section class:list={["relative", paddingClass]}>
-    <div class="site-container mx-auto px-4">
+    <div class="site-container mx-auto">
         {founders.length > 0 && (
             <>
-                <h2 class="text-3xl md:text-4xl font-medium text-center mb-2 tracking-tight text-primary">Meet Our Founders</h2>
-                {/* <div class="w-24 h-1 bg-pink-400 mx-auto mb-10 rounded-full" /> */}
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                <h2 class="text-3xl md:text-5xl font-semibold uppercase mb-2 tracking-tight text-primary text-center pb-16">Meet Our Founders</h2>
+                {/* <div class="w-48 h-1 bg-black/50 mx-auto mb-10 rounded-full" /> */}
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-16">
                     {founders.map((member, index) => (
                         <div
-                            class="flex flex-col items-center rounded-2xl p-8"
+                            class="flex flex-col items-center gap-2 rounded-2xl "
                             data-aos="fade-up"
                             data-aos-delay={index * 100}
                             data-aos-duration="800"
                         >
-                            <div class="relative mb-4 flex items-center justify-center w-40 h-40 md:w-56 md:h-56 rounded-full bg-transparent">
+                            <div class="relative mb-4 flex items-center border border-4 border-primary/75 justify-center w-40 h-40 md:w-64 md:h-64 rounded-full overflow-hidden bg-transparent">
                                 {member.data.headshot ? (
                                     <img
                                         src={member.data.headshot.src}
@@ -89,7 +89,7 @@ function resolveImage(headshot: any) {
                                         height={192}
                                         // quality={90}
                                         // format="webp"
-                                        class="rounded-full object-cover w-36 h-36 md:w-44 md:h-44"
+                                        class="object-cover bg-secondary/50 w-40 h-40 md:w-64 md:h-64"
                                         loading="eager"
                                         decoding="async"
                                     />
@@ -99,22 +99,26 @@ function resolveImage(headshot: any) {
                                     </div>
                                 )}
                             </div>
-                            <h3 class="text-2xl font-semibold text-primary mb-1 text-center">{member.data.name}</h3>
-                            <p class="text-base text-gray-500 mb-2 text-center">{member.data.jobTitle}</p>
-                            {member.data.email && (
-                                <div class="flex items-center justify-center gap-2 text-gray-600 text-sm mb-1">
-                                    <a href={`mailto:${member.data.email}`} aria-label="Email" class="text-gray-700 hover:text-primary">
-                                        <Mail size={20} strokeWidth={1.5} />
-                                    </a>
+                            <div class="flex flex-col gap-1 items-center">
+                                <h3 class="text-3xl font-semibold text-center leading-[.98em] text-black">{member.data.name}</h3>
+                                <p class="text-base text-gray-600 mb-2 text-center">{member.data.jobTitle}</p>
+                                <div class="flex items-center justify-center gap-2">
+                                    {member.data.linkedin && (
+                                        <div class="flex items-center justify-center gap-2 text-gray-600 text-sm mb-1">
+                                            <a href={member.data.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="text-blue-700 hover:text-blue-900">
+                                                <Linkedin size={24} />
+                                            </a>
+                                        </div>
+                                    )}
+                                    {member.data.email && (
+                                        <div class="flex items-center justify-center gap-2 text-gray-600 text-sm mb-1">
+                                            <a href={`mailto:${member.data.email}`} aria-label="Email" class="text-gray-700 hover:text-primary">
+                                                <Mail size={24} />
+                                            </a>
+                                        </div>
+                                    )}
                                 </div>
-                            )}
-                            {member.data.linkedin && (
-                                <div class="flex items-center justify-center gap-2 text-gray-600 text-sm mb-1">
-                                    <a href={member.data.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="text-blue-700 hover:text-blue-900">
-                                        <Linkedin size={20} />
-                                    </a>
-                                </div>
-                            )}
+                            </div>
                         </div>
                     ))}
                 </div>
@@ -122,17 +126,17 @@ function resolveImage(headshot: any) {
         )}
         {leads.length > 0 && (
             <>
-                <h2 class="text-3xl md:text-4xl font-medium text-center mb-2 mt-8 tracking-tight text-primary">Team Leads</h2>
+                <h2 class="text-3xl md:text-5xl font-semibold uppercase mb-2 tracking-tight text-primary text-center pb-16">Team Leads</h2>
                 {/* <div class="w-24 h-1 bg-pink-400 mx-auto mb-10 rounded-full" /> */}
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
                     {leads.map((member, index) => (
                         <div
-                            class="flex flex-col items-center rounded-2xl p-8"
+                            class="flex flex-col items-center gap-2 rounded-2xl "
                             data-aos="fade-up"
                             data-aos-delay={index * 100}
                             data-aos-duration="800"
                         >
-                            <div class="relative mb-4 flex items-center justify-center w-40 h-40 md:w-56 md:h-56 rounded-full bg-transparent">
+                            <div class="relative mb-4 flex items-center border border-4 border-primary/75 justify-center w-40 h-40 md:w-64 md:h-64 rounded-full overflow-hidden bg-transparent">
                                 {member.data.headshot ? (
                                     <img
                                         src={member.data.headshot.src}
@@ -141,39 +145,43 @@ function resolveImage(headshot: any) {
                                         height={192}
                                         // quality={90}
                                         // format="webp"
-                                        class="rounded-full object-cover w-36 h-36 md:w-44 md:h-44"
+                                        class="object-cover bg-secondary/50 w-40 h-40 md:w-64 md:h-64"
                                         loading="eager"
                                         decoding="async"
                                     />
                                 ) : (
-                                    <div class="w-36 h-36 md:w-44 md:h-44 rounded-full bg-gray-200 flex items-center justify-center">
+                                    <div class="w-36 h-36 md:w-56 md:h-56 rounded-full bg-gray-200 flex items-center justify-center">
                                         <span class="text-gray-400">No Image</span>
                                     </div>
                                 )}
                             </div>
-                            <h3 class="text-2xl font-semibold text-primary mb-1 text-center">{member.data.name}</h3>
-                            <p class="text-base text-gray-500 mb-2 text-center">{member.data.jobTitle}</p>
-                            {member.data.email && (
-                                <div class="flex items-center justify-center gap-2 text-gray-600 text-sm mb-1">
-                                    <a href={`mailto:${member.data.email}`} aria-label="Email" class="text-gray-700 hover:text-primary">
-                                        <Mail size={20} strokeWidth={1.5} />
-                                    </a>
+                            <div class="flex flex-col gap-1 items-center">
+                                <h3 class="text-3xl font-semibold text-center leading-[.98em] text-black">{member.data.name}</h3>
+                                <p class="text-base text-gray-600 mb-2 text-center">{member.data.jobTitle}</p>
+                                <div class="flex items-center justify-center gap-2">
+                                    {member.data.linkedin && (
+                                        <div class="flex items-center justify-center gap-2 text-gray-600 text-sm mb-1">
+                                            <a href={member.data.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="text-blue-700 hover:text-blue-900">
+                                                <Linkedin size={24} />
+                                            </a>
+                                        </div>
+                                    )}
+                                    {member.data.email && (
+                                        <div class="flex items-center justify-center gap-2 text-gray-600 text-sm mb-1">
+                                            <a href={`mailto:${member.data.email}`} aria-label="Email" class="text-gray-700 hover:text-primary">
+                                                <Mail size={24} />
+                                            </a>
+                                        </div>
+                                    )}
                                 </div>
-                            )}
-                            {member.data.linkedin && (
-                                <div class="flex items-center justify-center gap-2 text-gray-600 text-sm mb-1">
-                                    <a href={member.data.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="text-blue-700 hover:text-blue-900">
-                                        <Linkedin size={20} />
-                                    </a>
-                                </div>
-                            )}
+                            </div>
                         </div>
                     ))}
                 </div>
             </>
         )}
-        <div class="flex flex-col gap-4 items-center">
-            <h2 class="text-3xl md:text-4xl font-semibold text-center mt-8 tracking-tight text-primary">Technology Team</h2>
+        <div class="flex flex-col gap-16 items-center">
+            <h2 class="text-3xl md:text-4xl font-semibold text-center mt-8 text-3xl md:text-5xl font-semibold uppercase mb-2 tracking-tight text-primary pb-16">Technology Team</h2>
             {/* <div class="w-24 h-1 bg-pink-400 mx-auto mb-10 rounded-full" /> */}
             <div class="flex gap-16 justify-between w-full max-w-[72rem]">
                 {othersInTech.map((member, index) => (
@@ -205,8 +213,8 @@ function resolveImage(headshot: any) {
                             </div>
                         </div>
                         <div class="px-2 py-4 flex flex-col items-center flex-1">
-                            <h3 class="text-base font-medium text-primary mb-1">{member.data.name}</h3>
-                            <p class="text-sm text-gray-400 mb-2">{member.data.jobTitle}</p>
+                            <h3 class="text-base font-medium text-black mb-1">{member.data.name}</h3>
+                            <p class="text-sm text-gray-600 mb-2">{member.data.jobTitle}</p>
                             <div class="flex gap-4 mt-2 mb-2">
                                 {member.data.linkedin && (
                                     <a href={member.data.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="text-blue-700 hover:text-blue-900">
@@ -226,12 +234,12 @@ function resolveImage(headshot: any) {
         </div>
 
         <div>
-            <h2 class="text-3xl md:text-4xl font-semibold text-center mb-4 mt-8 tracking-tight text-primary">Operations Team</h2>
+            <h2 class="text-3xl md:text-5xl font-semibold uppercase mb-2 tracking-tight text-center pt-8 text-primary pb-16">Operations Team</h2>
             {/* <div class="w-24 h-1 bg-pink-400 mx-auto mb-10 rounded-full" /> */}
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 xl:gap-x-8 xl:gap-y-14">
+            <div class="flex gap-48 justify-center w-full max-w-[72rem] mx-auto">
                 {othersInOps.map((member, index) => (
                     <div
-                        class="flex flex-col group col-span-2 rounded-xl items-center"
+                        class="flex flex-col group col-span-1 rounded-xl items-center"
                         data-aos="fade-up"
                         data-aos-delay={index * 100}
                         data-aos-duration="800"
@@ -258,7 +266,7 @@ function resolveImage(headshot: any) {
                             </div>
                         </div>
                         <div class="px-2 py-4 flex flex-col items-center flex-1">
-                            <h3 class="text-base font-medium text-primary mb-1">{member.data.name}</h3>
+                            <h3 class="text-base font-medium text-black mb-1">{member.data.name}</h3>
                             <p class="text-sm text-gray-400 mb-2">{member.data.jobTitle}</p>
                             <div class="flex gap-4 mt-2 mb-2">
                                 {member.data.linkedin && (
