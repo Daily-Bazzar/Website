@@ -80,10 +80,11 @@
     --border-radius-large: 2rem;
     
     --font-bruno-ace: 'Bruno Ace SC', sans-serif;
+    --font-urbanist: 'Urbanist', sans-serif;
     --font-noto-sans-kr: "Noto Sans KR", sans-serif;
-    --font-base: 'Noto Sans KR', sans-serif;
+    --font-base: 'Urbanist', sans-serif;
     --font-logo: 'Bruno Ace SC', sans-serif;
-    --font-headline: 'Noto Sans KR', sans-serif;
+    --font-headline: 'Urbanist', sans-serif;
 }
 
 @layer base {
@@ -541,6 +542,7 @@ body {
     margin: 0;
     width: 100%;
     height: 100%;
+    font-family: 'Urbanist', sans-serif;
 }
 
 [x-cloak] {
