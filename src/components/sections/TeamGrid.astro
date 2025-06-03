@@ -82,13 +82,13 @@ function resolveImage(headshot: any) {
                         >
                             <div class="relative mb-4 flex items-center justify-center w-40 h-40 md:w-56 md:h-56 rounded-full bg-transparent">
                                 {member.data.headshot ? (
-                                    <Image
-                                        src={resolveImage(member.data.headshot)}
+                                    <img
+                                        src={member.data.headshot.src}
                                         alt={member.data.name}
                                         width={192}
                                         height={192}
-                                        quality={90}
-                                        format="webp"
+                                        // quality={90}
+                                        // format="webp"
                                         class="rounded-full object-cover w-36 h-36 md:w-44 md:h-44"
                                         loading="eager"
                                         decoding="async"
@@ -134,13 +134,13 @@ function resolveImage(headshot: any) {
                         >
                             <div class="relative mb-4 flex items-center justify-center w-40 h-40 md:w-56 md:h-56 rounded-full bg-transparent">
                                 {member.data.headshot ? (
-                                    <Image
-                                        src={resolveImage(member.data.headshot)}
+                                    <img
+                                        src={member.data.headshot.src}
                                         alt={member.data.name}
                                         width={192}
                                         height={192}
-                                        quality={90}
-                                        format="webp"
+                                        // quality={90}
+                                        // format="webp"
                                         class="rounded-full object-cover w-36 h-36 md:w-44 md:h-44"
                                         loading="eager"
                                         decoding="async"
@@ -239,13 +239,13 @@ function resolveImage(headshot: any) {
                         <div class="pl-4 pr-2 py-4">
                             <div class="flex items-center justify-center w-32 h-32 md:w-40 md:h-40 rounded-full bg-transparent">
                                 {member.data.headshot ? (
-                                    <Image
-                                        src={resolveImage(member.data.headshot)}
+                                    <img
+                                        src={member.data.headshot.src}
                                         alt={member.data.name}
                                         width={96}
                                         height={96}
-                                        quality={80}
-                                        format="webp"
+                                        // quality={80}
+                                        // format="webp"
                                         class="rounded-full object-cover w-32 h-32 md:w-40 md:h-40"
                                         loading="eager"
                                         decoding="async"
