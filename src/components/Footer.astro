@@ -10,7 +10,9 @@ const year = new Date().getFullYear();
       <div class="flex flex-col items-center md:items-start">
         <span class="text-xl font-[Noto_Serif_Display] text-[#004346] font-bold">{companyName}</span>
         <span class="text-sm text-slate-600 mt-1">{Socials.Location}</span>
-        <span class="text-sm text-slate-600">{Socials.Email} | {Socials.Phone}</span>
+        <span class="text-sm text-slate-600">
+          <a href={`mailto:${Socials.Email}`} class="hover:text-[#0E5376] underline">{Socials.Email}</a> | {Socials.Phone}
+        </span>
       </div>
       <div class="flex gap-4 flex-wrap items-center">
         <a href={Socials.xSocial} target="_blank" rel="noopener" class="hover:text-[#0E5376] underline text-sm">X</a>
