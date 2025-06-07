@@ -1,0 +1,65 @@
+---
+// Navbar.astro
+---
+
+<div class="relative z-50 bg-[#F9FAFB]">
+    <!-- Gradient Background Container -->
+    <div class="absolute inset-0 pointer-events-none -z-10">
+      <div class="w-[90vw] h-[4rem] mx-auto left-1/2 -translate-x-1/2 top-0 absolute blur-[120px]" style="background:radial-gradient(ellipse at top, #AFC5E1 60%, transparent 100%)"></div>
+    </div>
+    
+    <!-- Navbar -->
+    <nav class="relative my-4  border border-1 border-white/20 rounded-lg">
+      <div class=" mx-auto py-4">
+        <div class="bg-[#000000]/6 px-2 py-2 rounded-lg border-1 border-white/20 mx-auto w-fit gap-32 flex items-center justify-between">
+          <!-- Logo -->
+          <div class="flex items-center gap-2">
+            <a href="/" aria-label="Home">
+              <img src="/src/assets/logogram.svg" alt="Daily Bazaar Logo" class="h-8 w-auto cursor-pointer" />
+            </a>
+          </div>
+  
+          <!-- Navigation Links -->
+          <div class="hidden md:flex items-center gap-8">
+            <!-- Services Dropdown -->
+            <div class="relative group">
+              <button class="text-slate-600 hover:text-slate-800 font-medium font-urbanist transition-colors focus:outline-none cursor-pointer">Services</button>
+              <div class="absolute left-0 mt-2 w-40 bg-white border border-gray-100 rounded-lg shadow-lg hidden group-hover:flex flex-col z-50">
+                <a href="/services/plumbing" class="block px-4 py-2 text-slate-600 hover:bg-gray-50">Plumbing</a>
+                <a href="/services/electrician" class="block px-4 py-2 text-slate-600 hover:bg-gray-50">Electrician</a>
+                <a href="/services/carpentry" class="block px-4 py-2 text-slate-600 hover:bg-gray-50">Carpentry</a>
+              </div>
+            </div>
+            <!-- Solutions Dropdown -->
+            <div class="relative group">
+              <button class="text-slate-600 hover:text-slate-800 font-medium font-urbanist transition-colors focus:outline-none cursor-pointer">Solutions</button>
+              <div class="absolute left-0 mt-2 w-40 bg-white border border-gray-100 rounded-lg shadow-lg hidden group-hover:flex flex-col z-50">
+                <a href="/solutions/business" class="block px-4 py-2 text-slate-600 hover:bg-gray-50">Business</a>
+                <a href="/solutions/home" class="block px-4 py-2 text-slate-600 hover:bg-gray-50">Home</a>
+                <a href="/solutions/enterprise" class="block px-4 py-2 text-slate-600 hover:bg-gray-50">Enterprise</a>
+              </div>
+            </div>
+            <a href="/about" class="text-slate-600 hover:text-slate-800 font-medium font-urbanist transition-colors cursor-pointer">
+              About us
+            </a>
+            <a href="/contact" class="text-slate-600 hover:text-slate-800 font-medium font-urbanist transition-colors cursor-pointer">
+              Contact us
+            </a>
+            <a href="/blog" class="text-slate-600 hover:text-slate-800 font-medium font-urbanist transition-colors cursor-pointer">
+              Blog
+            </a>
+          </div>
+  
+          <!-- Action Buttons -->
+          <div class="flex items-center gap-3">
+            <!-- <button class="hidden sm:block px-6 py-2 border border-gray-300 text-slate-600 hover:border-[#0E5376] hover:text-[#0E5376] rounded-lg font-medium font-urbanist transition-all">
+              Log in
+            </button> -->
+            <button class="px-6 py-2 bg-[#0E5376] hover:bg-[#0E5376]/90 text-white rounded-lg font-medium font-urbanist transition-all cursor-pointer">
+              Talk to Us
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>

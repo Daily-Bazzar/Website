@@ -1,0 +1,29 @@
+---
+const { name, role, image, linkedin, email, size = "lg", imgClass = "" } = Astro.props;
+
+const sizeObj = {
+    lg: "w-64",
+    md: "w-48",
+    sm: "w-32",
+}
+
+const width = sizeObj[size as keyof typeof sizeObj];
+
+---
+
+    <div class={`flex flex-col items-center border border-[#2A9D8F33] rounded-xl overflow-hidden bg-white shadow-sm ${width} shrink-0`}>
+        <img src={image} alt={name} class:list={["w-full aspect-[4/3] object-cover", imgClass]} />
+        <div class="p-2 py-3 flex flex-col gap-6 items-center">
+            <div class="flex text-center flex-col gap-1">   
+                <h3 class="text-base font-medium whitespace-nowrap">{name}</h3>
+                <p class="text-xs opacity-50 whitespace-nowrap">{role}</p>
+            </div>
+            <div class="flex gap-2">
+                <a href={linkedin}>
+                    <img src="/src/assets/linkedin.svg" alt="LinkedIn" class="w-6 h-6 text-[#2A9D8F]" />
+                </a>
+                <a href={`mailto:${email}`}>
+                    <img src="/src/assets/email.svg" alt="email" class="w-6 h-6 text-[#2A9D8F]" />
+                </a>
+            </div>
+        </div>

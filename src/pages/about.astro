@@ -1,0 +1,220 @@
+---
+import GlobalLayout from "../layouts/GlobalLayout.astro";
+import TeamCard from "../components/TeamCard.astro";
+// No frontmatter needed for static content
+---
+
+<GlobalLayout class:list={["bg-white"]}>
+    <!-- <body class="bg-[#f6fdff] min-h-screen"> -->
+    <div class="ellipse-left"></div>
+    <div class="ellipse-right"></div>
+    <section class="flex flex-col items-center py-16">
+        <h1
+            class="text-4xl md:text-5xl font-[Noto_Serif_Display] text-[#004346] mb-16"
+        >
+            About Us
+        </h1>
+        <div
+            class="flex flex-col gap-4 max-w-2xl text-center text-[#004346] mb-16"
+        >
+            <p class="mb-2">
+                <span class="text-[#004346] font-semibold">Daily Bazzar</span> is
+                on a mission to revolutionize the way local commerce works across
+                Northeast India. We are building a trusted, technology-driven platform
+                that bridges the gap between local vendors, service providers, and
+                everyday customers. Whether it's booking a reliable electrician,
+                finding a trustworthy nanny, hiring a driver, or supporting your
+                neighborhood grocery vendor—Daily Bazzar brings your daily needs
+                to your fingertips.
+            </p>
+            <p class="mb-2">
+                We are more than just a service marketplace—we're a movement to
+                empower local economies, support small businesses, and bring
+                digital inclusion to Tier 2 and Tier 3 cities. By giving
+                visibility to local talent and streamlining access to essential
+                services, we're helping communities thrive in the digital age.
+            </p>
+            <p>
+                Join us as we redefine convenience, empower vendors, and make
+                daily life simpler—one service at a time.
+            </p>
+        </div>
+        <div class="mb-8 flex flex-col items-center">
+            <span class="text-[#2A9D8F] mb-2"
+                >At Daily Bazzar, we believe in building with purpose:</span
+            >
+            <div class="flex flex-wrap gap-2 justify-center">
+                <span
+                    class="bg-[#F0F2F4] text-[#0094BD] px-2 py-1 rounded-full text-xs font-medium flex items-center gap-1"
+                    >For the People <span
+                        class="bg-[#2A9D8F] rounded-full p-1 flex items-center justify-center"
+                        style="display:inline-flex;"
+                        ><img
+                            src="/src/assets/people.svg"
+                            alt="People"
+                            class="w-2 h-2"
+                        /></span
+                    ></span
+                >
+                <span
+                    class="bg-[#F0F2F4] text-[#0094BD] px-2 py-1 rounded-full text-xs font-medium flex items-center gap-1"
+                    >With Local Trust <span
+                        class="bg-[#2A9D8F] rounded-full p-1 flex items-center justify-center"
+                        style="display:inline-flex;"
+                        ><img
+                            src="/src/assets/trust.svg"
+                            alt="Trust"
+                            class="w-2 h-2"
+                        /></span
+                    ></span
+                >
+                <span
+                    class="bg-[#F0F2F4] text-[#0094BD] px-2 py-1 rounded-full text-xs font-medium flex items-center gap-1"
+                    >Driven by Technology <span
+                        class="bg-[#2A9D8F] rounded-full p-1 flex items-center justify-center"
+                        style="display:inline-flex;"
+                        ><img
+                            src="/src/assets/tech.svg"
+                            alt="Tech"
+                            class="w-2 h-2"
+                        /></span
+                    ></span
+                >
+            </div>
+        </div>
+
+        <!-- founders -->
+        <div class="w-full max-w-4xl my-8">
+            <h2 class="text-xl font-medium mb-8 text-center">
+                Meet the founders
+            </h2>
+            <div class="flex justify-center items-center gap-4">
+                <TeamCard
+                    name="Benjamin Doley"
+                    role="Founder"
+                    image="/src/assets/team/benjamin.jpg"
+                    linkedin="https://www.linkedin.com/in/manish-kumar-das-76"
+                    email="manish@dailybazzar.com"
+                />
+                <TeamCard
+                    name="Techi Tina Tara"
+                    role="Co-Founder"
+                    image="/src/assets/team/tina.png"
+                    linkedin="https://www.linkedin.com/in/manish-kumar-das-76"
+                    email="manish@dailybazzar.com"
+                />
+            </div>
+        </div>
+
+        <!-- tech team -->
+        <div class="w-full max-w-4xl my-8">
+            <h2 class="text-xl font-medium mb-8 text-center">
+                Meet the Tech Team
+            </h2>
+            <div class="flex justify-center items-center gap-4 flex-wrap">
+                <TeamCard
+                    name="Manish Kumar Das"
+                    role="CTO"
+                    image="/src/assets/team/manish.png"
+                    linkedin="https://www.linkedin.com/in/manish-kumar-das-76"
+                    imgClass="bg-size-[200%]"
+                    email="manish@dailybazzar.com"
+                />
+                <TeamCard
+                    name="Shrewa Shree Konika P Bharati"
+                    role="Backend Developer"
+                    image="/src/assets/team/shrewa.png"
+                    linkedin="https://www.linkedin.com/in/manish-kumar-das-76"
+                    email="manish@dailybazzar.com"
+                />
+                <TeamCard
+                    name="Lakhyajit Basumatary"
+                    role="App Developer"
+                    image="/src/assets/team/lakhyajit.jpg"
+                    linkedin="https://www.linkedin.com/in/manish-kumar-das-76"
+                    email="manish@dailybazzar.com"
+                />
+                <TeamCard
+                    name="Keshab Kayal"
+                    role="App Developer"
+                    image="/src/assets/team/keshab.jpg"
+                    linkedin="https://www.linkedin.com/in/manish-kumar-das-76"
+                    email="manish@dailybazzar.com"
+                />
+            </div>
+        </div>
+        <div class="w-full max-w-4xl my-8">
+            <h2 class="text-xl font-medium mb-8 text-center">
+                Meet the Design Team
+            </h2>
+            <div class="flex justify-center items-center gap-4">
+                <TeamCard
+                    name="Bivob Bhuyan"
+                    role="Chief Designer"
+                    image="/src/assets/team/bivob.jpeg"
+                    linkedin="https://www.linkedin.com/in/manish-kumar-das-76"
+                    email="manish@dailybazzar.com"
+                />
+                <TeamCard
+                    name="Glory Narzary"
+                    role="UI/UX Designer"
+                    image="https://randomuser.me/api/portraits/men/76.jpg"
+                    linkedin="https://www.linkedin.com/in/manish-kumar-das-76"
+                    email="manish@dailybazzar.com"
+                />
+            </div>
+        </div>
+
+        <!-- product -->
+        <div class="w-full max-w-4xl my-8">
+            <h2 class="text-xl font-medium mb-8 text-center">
+                Meet the Product Team
+            </h2>
+            <div class="flex justify-center items-center gap-4">
+                <TeamCard
+                    name="Jeet Saha"
+                    role="Product Management Intern"
+                    image="/src/assets/team/jeet.jpg"
+                    linkedin="https://www.linkedin.com/in/manish-kumar-das-76"
+                    email="manish@dailybazzar.com"
+                />
+                <TeamCard
+                    name="Soumar Jyoti Borah"
+                    role="Product Management Intern"
+                    image="/src/assets/team/soumar.jpg"
+                    linkedin="https://www.linkedin.com/in/manish-kumar-das-76"
+                    email="manish@dailybazzar.com"
+                />
+            </div>
+        </div>
+    </section>
+</GlobalLayout>
+
+<style>
+  .ellipse-left {
+    position: fixed;
+    top: 20vh;
+    left: -200px;
+    width: 400px;
+    height: 600px;
+    background: radial-gradient(circle at 60% 40%, #2A9D8F55 60%, transparent 100%);
+    filter: blur(60px);
+    opacity: 0.5;
+    z-index: 0;
+    pointer-events: none;
+  }
+  .ellipse-right {
+    position: fixed;
+    top: 40vh;
+    right: -200px;
+    width: 400px;
+    height: 600px;
+    background: radial-gradient(circle at 40% 60%, #0094BD55 60%, transparent 100%);
+    filter: blur(60px);
+    opacity: 0.5;
+    z-index: 0;
+    pointer-events: none;
+  }
+</style>
+
+<!-- </body> -->

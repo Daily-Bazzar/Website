@@ -1,16 +1,37 @@
 ---
+import GlobalLayout from "../layouts/GlobalLayout.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+import ShopkeeperCTA from "../components/ShopkeeperCTA.astro";
+import ServicesSection from "../components/ServicesSection.astro";
+import BentoSection from "../components/BentoSection.astro";
+
 
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<GlobalLayout>
+	<!-- <p class="bg-red-500">index page</p> -->
+	<!-- Hero Section (background only, no text) -->
+	<section class="relative w-full h-[60vh] min-h-[400px] flex items-center overflow-hidden">
+		<img src="/src/assets/heroimage.png" alt="Hero Background" class="absolute inset-0 w-full h-full object-cover object-center -z-10" />
+		<div class="absolute z-10 flex flex-col justify-center items-start h-full -top-30 left-20">
+			<h1 class="font-[Noto_Serif_Display] text-[#204040] text-4xl md:text-4xl leading-tight text-left">
+				Buy from your<br />Loved Local Shops
+			</h1>
+		</div>
+	</section>
+
+	<ServicesSection />
+
+	<style>
+	@keyframes scroll-horizontal {
+		0% { transform: translateX(0); }
+		100% { transform: translateX(-50%); }
+	}
+	.animate-scroll-horizontal {
+		width: max-content;
+	}
+	</style>
+
+	<ShopkeeperCTA />
+	<BentoSection />
+</GlobalLayout>
