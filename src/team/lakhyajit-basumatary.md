@@ -1,6 +1,6 @@
 ---
 name: "Lakhyajit Basumatary"
-headshot: "./images/lakhyajit.jpg"
+headshot: "./images/lakhyajit.png"
 jobTitle: "Software Development Engineer Intern"
 publish: true
 order: 3

@@ -10,19 +10,9 @@ import BentoSection from "../components/BentoSection.astro";
 
 <GlobalLayout>
 	<!-- <p class="bg-red-500">index page</p> -->
-	<!-- Hero Section (background only, no text) -->
-	<section class="relative w-full h-[60vh] min-h-[400px] flex items-center overflow-hidden">
-		<!-- Decorative ellipses with more blur on mobile -->
-		<div class="absolute top-[120px] right-[-120px] w-[320px] h-[200px] rounded-full bg-[#2A9D8F] blur-[360px] z-80 md:blur-[360px] sm:blur-[480px] xs:blur-[600px]"></div>
-		<div class="absolute bottom-[-80px] left-[120px] w-[320px] h-[200px] rounded-full bg-[#2A9D8F] blur-[360px] z-80 md:blur-[360px] sm:blur-[480px] xs:blur-[600px]"></div>
-		<!-- New hero images, fully opaque, hero01 further left on mobile -->
-		<img src="/src/assets/hero01.png" alt="Shopper" class="hidden sm:block absolute left-2 sm:left-20 top-8/12 -translate-y-1/2 h-3/5 max-h-[60%] w-auto z-0 object-contain" />
-		<img src="/src/assets/hero02.png" alt="Storefront" class="absolute right-0 top-0 h-full w-auto z-0 object-contain" />
-		<div class="absolute z-10 flex flex-col justify-center items-start h-full -top-30 sm:left-20 left-4">
-			<h1 class="font-[Noto_Serif_Display] text-[#204040] text-4xl md:text-4xl leading-tight text-left">
-				Buy from your<br />Loved Local Shops
-			</h1>
-		</div>
+	<!-- Hero Section replaced with a single image -->
+	<section class="relative w-full h-[60vh] min-h-[400px] flex items-center overflow-hidden p-0">
+		<img src="/assets/heroimage.png" alt="Shopper and storefront hero" class="w-full h-full object-contain" />
 	</section>
 
 	<ServicesSection />
