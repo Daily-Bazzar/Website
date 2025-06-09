@@ -1,17 +1,19 @@
 ---
 // Navbar.astro
+import { joinWaitlistLink } from "../config/links.ts";
 ---
 
-<div class="relative z-50 bg-[#F9FAFB]">
+
+<div class="relative z-50">
     <!-- Gradient Background Container -->
-    <div class="absolute inset-0 pointer-events-none -z-10">
+    <!-- <div class="absolute inset-0 pointer-events-none -z-10">
       <div class="w-[90vw] h-[4rem] mx-auto left-1/2 -translate-x-1/2 top-0 absolute blur-[120px]" style="background:radial-gradient(ellipse at top, #AFC5E1 60%, transparent 100%)"></div>
-    </div>
+    </div> -->
     
     <!-- Navbar -->
-    <nav class="relative border border-1 border-white/20 rounded-lg">
-      <div class="mx-auto py-8 max-w-5xl">
-        <div class="bg-[#000000]/6 px-4 py-2 rounded-lg border-1 border-white/20 mx-auto w-full flex items-center justify-between">
+    <nav class="fixed w-full bg-white/75">
+      <div class="mx-auto ">
+        <div class="px-16 py-2 mx-auto w-full flex items-center justify-between backdrop-blur-lg">
           <!-- Logo (always left) -->
           <div class="flex items-center gap-4 flex-shrink-0">
             <a href="/" aria-label="Home">
@@ -28,9 +30,7 @@
 
           <!-- CTA + Hamburger (right on mobile, only CTA on desktop) -->
           <div class="flex items-center gap-6 flex-shrink-0">
-            <button class="px-7 py-2 bg-[#0E5376] hover:bg-[#0E5376]/90 text-white rounded-lg font-medium font-urbanist transition-all cursor-pointer whitespace-nowrap">
-              Talk to Us
-            </button>
+            <a href={joinWaitlistLink} target="_blank" rel="noopener" class="px-7 py-2 bg-[#0E5376] hover:bg-[#0E5376]/90 text-white rounded-lg font-medium font-urbanist transition-all cursor-pointer whitespace-nowrap">Join Waitlist</a>
             <button id="navbar-hamburger" class="md:hidden flex flex-col justify-center items-center w-12 h-12 rounded hover:bg-[#0E5376]/10 transition-all" aria-label="Open Menu">
               <span class="block w-7 h-0.5 bg-[#0E5376] mb-1"></span>
               <span class="block w-7 h-0.5 bg-[#0E5376] mb-1"></span>
@@ -54,9 +54,7 @@
           <a href="/blog" class="block w-full py-3 text-slate-700 hover:text-[#0E5376] text-lg border-b border-[#e6e6e6] text-center mobile-menu-close">Blog</a>
         </div>
         <div class="px-6 pb-8">
-          <button class="w-full px-7 py-3 bg-[#0E5376] hover:bg-[#0E5376]/90 text-white rounded-lg font-medium font-urbanist transition-all cursor-pointer whitespace-nowrap text-lg mobile-menu-close">
-            Talk to Us
-          </button>
+          <a href={joinWaitlistLink} target="_blank" rel="noopener" class="w-full px-7 py-3 bg-[#0E5376] hover:bg-[#0E5376]/90 text-white rounded-lg font-medium font-urbanist transition-all cursor-pointer whitespace-nowrap text-lg mobile-menu-close">Join Waitlist</a>
         </div>
       </div>
     </nav>

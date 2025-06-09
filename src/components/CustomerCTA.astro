@@ -1,0 +1,42 @@
+---
+import Image from "astro/components/Image.astro";
+---
+
+<section class="relative bg-white pt-16">
+    <div class="site-container px-8">
+      <div class="grid gap-12 md:grid-cols-2 items-center">
+        <!-- Left: Text and Form -->
+        <div>
+          <h2 class="text-3xl font-[600] mb-4">Join the waitlist today!</h2>
+          <p class="mb-6 text-lg text-gray-700 text-balance">Be the first to know when we launch and get exclusive early access offers and features</p>
+          <!-- <form class="flex flex-col sm:flex-row gap-4 max-w-md">
+            <Input
+              label="Email"
+              type="email"
+              id="waitlist-email"
+              name="email"
+              placeholder="Enter your email"
+              required={true}
+              background="light"
+              class="flex-1"
+            />
+          </form> -->
+          <a href="https://forms.gle/WtJgGuSuS3KQXJ1LA" target="_blank">
+              <button class="min-w-[120px] bg-[#0e5376] text-white cursor-pointer px-3 py-2 rounded-md text-sm">Join the Waitlist</Button>
+          </a>
+        </div>
+        <!-- Right: Image -->
+        <div class="relative aspect-[4/3] overflow-hidden rounded-xl">
+          <Image
+            src={"/assets/dummyservice.png"}
+            alt={'Waitlist preview'}
+            width={800}
+            height={600}
+            class="w-full h-full object-contain"
+            quality={80}
+            format="webp"
+          />
+        </div>
+      </div>
+    </div>
+  </section> 
