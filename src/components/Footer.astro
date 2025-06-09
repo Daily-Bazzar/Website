@@ -11,7 +11,7 @@ const year = new Date().getFullYear();
         <span class="text-xl font-[Noto_Serif_Display] text-[#004346] font-bold">{companyName}</span>
         <span class="text-sm text-slate-600 mt-1">{Socials.Location}</span>
         <span class="text-sm text-slate-600">
-          <a href={`mailto:${Socials.Email}`} class="hover:text-[#0E5376] underline">{Socials.Email}</a> | {Socials.Phone}
+          <a href={`mailto:${Socials.Email}`} class="hover:text-[#0E5376] underline">{Socials.Email}</a> <br /> <a href={`tel:${Socials.Phone}`} class="hover:text-[#0E5376] underline">{Socials.Phone}</a>
         </span>
       </div>
       <div class="flex flex-col items-center md:items-start md:col-span-2">
@@ -24,7 +24,7 @@ const year = new Date().getFullYear();
       </div>
       <div class="flex gap-4 flex-wrap items-center justify-center">
         <a href={Socials.xSocial} target="_blank" rel="noopener" class="hover:text-[#0E5376] underline text-sm">X</a>
-        <a href={Socials.Github} target="_blank" rel="noopener" class="hover:text-[#0E5376] underline text-sm">GitHub</a>
+        <!-- <a href={Socials.Github} target="_blank" rel="noopener" class="hover:text-[#0E5376] underline text-sm">GitHub</a> -->
         <a href={Socials.Instagram} target="_blank" rel="noopener" class="hover:text-[#0E5376] underline text-sm">Instagram</a>
         <a href={Socials.LinkedIn} target="_blank" rel="noopener" class="hover:text-[#0E5376] underline text-sm">LinkedIn</a>
       </div>
