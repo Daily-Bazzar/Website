@@ -5,6 +5,61 @@ import { joinWaitlistLink } from "../config/links.ts";
 
 
 <div class="relative z-50">
+    <!-- Marquee Section -->
+    <div class="w-full bg-[#0e5376] overflow-hidden h-8 flex items-center relative">
+      <div class="marquee-track flex absolute left-0 top-0 h-full w-full">
+        <div class="marquee-content whitespace-nowrap text-white text-sm font-semibold tracking-wide flex items-center" aria-hidden="true">
+          <span class="mx-8 flex items-center gap-2">
+            <span class="text-lg">✨</span>
+            <span>Join us as we redefine convenience, empower vendors, and make daily life simpler—one service at a time.</span>
+            <span class="ml-3 px-2 py-0.5 rounded-full bg-white/20 text-xs font-bold flex items-center gap-1"><span class="text-yellow-300">⏳</span>Coming soon</span>
+          </span>
+          <span class="mx-8 flex items-center gap-2">
+            <span class="text-lg">✨</span>
+            <span>Join us as we redefine convenience, empower vendors, and make daily life simpler—one service at a time.</span>
+            <span class="ml-3 px-2 py-0.5 rounded-full bg-white/20 text-xs font-bold flex items-center gap-1"><span class="text-yellow-300">⏳</span>Coming soon</span>
+          </span>
+          <span class="mx-8 flex items-center gap-2">
+            <span class="text-lg">✨</span>
+            <span>Join us as we redefine convenience, empower vendors, and make daily life simpler—one service at a time.</span>
+            <span class="ml-3 px-2 py-0.5 rounded-full bg-white/20 text-xs font-bold flex items-center gap-1"><span class="text-yellow-300">⏳</span>Coming soon</span>
+          </span>
+        </div>
+        <div class="marquee-content whitespace-nowrap text-white text-sm font-semibold tracking-wide flex items-center" aria-hidden="true">
+          <span class="mx-8 flex items-center gap-2">
+            <span class="text-lg">✨</span>
+            <span>Join us as we redefine convenience, empower vendors, and make daily life simpler—one service at a time.</span>
+            <span class="ml-3 px-2 py-0.5 rounded-full bg-white/20 text-xs font-bold flex items-center gap-1"><span class="text-yellow-300">⏳</span>Coming soon</span>
+          </span>
+          <span class="mx-8 flex items-center gap-2">
+            <span class="text-lg">✨</span>
+            <span>Join us as we redefine convenience, empower vendors, and make daily life simpler—one service at a time.</span>
+            <span class="ml-3 px-2 py-0.5 rounded-full bg-white/20 text-xs font-bold flex items-center gap-1"><span class="text-yellow-300">⏳</span>Coming soon</span>
+          </span>
+          <span class="mx-8 flex items-center gap-2">
+            <span class="text-lg">✨</span>
+            <span>Join us as we redefine convenience, empower vendors, and make daily life simpler—one service at a time.</span>
+            <span class="ml-3 px-2 py-0.5 rounded-full bg-white/20 text-xs font-bold flex items-center gap-1"><span class="text-yellow-300">⏳</span>Coming soon</span>
+          </span>
+        </div>
+      </div>
+    </div>
+    <style>
+      @keyframes marquee-scroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-100%); }
+      }
+      .marquee-track {
+        width: 200%;
+        animation: marquee-scroll 16s linear infinite;
+      }
+      .marquee-content {
+        width: 50%;
+        min-width: max-content;
+        display: flex;
+        align-items: center;
+      }
+    </style>
     <!-- Gradient Background Container -->
     <!-- <div class="absolute inset-0 pointer-events-none -z-10">
       <div class="w-[90vw] h-[4rem] mx-auto left-1/2 -translate-x-1/2 top-0 absolute blur-[120px]" style="background:radial-gradient(ellipse at top, #AFC5E1 60%, transparent 100%)"></div>
