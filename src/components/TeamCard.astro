@@ -11,7 +11,8 @@ const width = sizeObj[size as keyof typeof sizeObj];
 
 ---
 
-    <div class={`flex flex-col items-center border border-[#2A9D8F33] rounded-xl overflow-hidden bg-white shadow-sm ${width} shrink-0`}>
+    <div class={`relative flex flex-col items-center border border-[#2A9D8F33] rounded-xl overflow-hidden bg-white shadow-sm ${width} shrink-0`}>
+        <div class="absolute bottom-4 right-4 w-[10rem] h-[10rem] bg-[#1AF4FE] rounded-full opacity-30 blur-[100px] z-0"></div>
         <img src={image} alt={name} class:list={["w-full aspect-[4/3] object-cover", imgClass]} />
         <div class="p-2 py-3 flex flex-col gap-6 items-center">
             <div class="flex text-center flex-col gap-1">   
