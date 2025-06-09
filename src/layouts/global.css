@@ -3,3 +3,8 @@
 body {
     font-family: "Urbanist", sans-serif;
 }
+
+*::selection {
+    background-color: #0e537699;
+    color: #fff;
+}
