@@ -1,5 +1,6 @@
 ---
 import GlobalLayout from "../layouts/GlobalLayout.astro";
+import { siteConfig } from "../config/siteConfig";
 ---
 
 <GlobalLayout>
@@ -10,23 +11,22 @@ import GlobalLayout from "../layouts/GlobalLayout.astro";
     <div class="flex flex-col gap-6 max-w-xl w-full bg-white/90 rounded-2xl shadow-lg p-8 border border-[#e6e6e6]">
       <div class="flex items-center gap-3">
         <span class="font-semibold text-[#004346] w-28">Email:</span>
-        <a href="mailto:admin@dailybazzar.com" class="text-[#0E5376] hover:underline break-all">admin@dailybazzar.com</a>
+        <a href={`mailto:${siteConfig.Socials.Email}`} class="text-[#0E5376] hover:underline break-all">{siteConfig.Socials.Email}</a>
       </div>
       <div class="flex items-center gap-3">
         <span class="font-semibold text-[#004346] w-28">Phone:</span>
-        <a href="tel:+919876543210" class="text-[#0E5376] hover:underline">+91 9876543210</a>
+        <a href={`tel:${siteConfig.Socials.Phone}`} class="text-[#0E5376] hover:underline">{siteConfig.Socials.Phone}</a>
       </div>
       <div class="flex items-center gap-3">
         <span class="font-semibold text-[#004346] w-28">Location:</span>
-        <span class="text-slate-700">JB Road, Jorhat - 785001, Assam, India</span>
+        <span class="text-slate-700">{siteConfig.Socials.Location}</span>
       </div>
       <div>
         <span class="font-semibold text-[#004346]">Social:</span>
         <div class="flex flex-wrap gap-4 mt-2">
-          <a href="https://x.com/dailybazzar" target="_blank" rel="noopener" class="hover:text-[#0E5376] underline">X (Twitter)</a>
-          <a href="https://github.com/dailybazzar" target="_blank" rel="noopener" class="hover:text-[#0E5376] underline">GitHub</a>
-          <a href="https://www.instagram.com/dailybazzar" target="_blank" rel="noopener" class="hover:text-[#0E5376] underline">Instagram</a>
-          <a href="https://www.linkedin.com/company/dailybazzar" target="_blank" rel="noopener" class="hover:text-[#0E5376] underline">LinkedIn</a>
+          <a href={siteConfig.Socials.xSocial} target="_blank" rel="noopener" class="hover:text-[#0E5376] underline">X (Twitter)</a>
+          <a href={siteConfig.Socials.Instagram} target="_blank" rel="noopener" class="hover:text-[#0E5376] underline">Instagram</a>
+          <a href={siteConfig.Socials.LinkedIn} target="_blank" rel="noopener" class="hover:text-[#0E5376] underline">LinkedIn</a>
         </div>
       </div>
     </div>
