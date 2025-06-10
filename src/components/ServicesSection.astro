@@ -13,25 +13,120 @@ const services = [
   // { title: 'Driver', img: 'https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg' },
   { title: 'Babysitter', img: '/assets/services/babysitter.jpeg' },
 ];
+const SSR_VISIBLE_CARDS = 3;
+const clonesBefore = services.slice(-SSR_VISIBLE_CARDS);
+const clonesAfter = services.slice(0, SSR_VISIBLE_CARDS);
+const sliderCards = [...clonesBefore, ...services, ...clonesAfter];
 ---
 <section class="bg-white py-24 px-8 md:px-20">
   <div class="max-w-7xl mx-auto px-4">
     <h2 class="text-[#204040] text-4xl font-[Noto_Serif_Display] mb-10">Avail home services<br/>at low cost</h2>
     <div class="relative overflow-x-hidden overflow-y-visible">
-      <div class="flex gap-10 animate-scroll-horizontal whitespace-nowrap" style="animation: scroll-horizontal 90s linear infinite;">
-        {services.concat(services).map(service => (
-          <ServiceCard title={service.title} img={service.img} />
-        ))}
+      <div id="service-slider"  class="flex gap-10 transition-transform duration-500" style="transform: translateX(0);">
+        <!-- Cards will be rendered by JS for perfect sync -->
       </div>
+      <button id="slider-left" class="absolute left-0 top-1/2 -translate-y-1/2 bg-white border border-gray-200 rounded-full shadow p-2 z-10 hidden md:block" aria-label="Previous">
+        &#8592;
+      </button>
+      <button id="slider-right" class="absolute right-0 top-1/2 -translate-y-1/2 bg-white border border-gray-200 rounded-full shadow p-2 z-10 hidden md:block" aria-label="Next">
+        &#8594;
+      </button>
     </div>
   </div>
   <style>
-    @keyframes scroll-horizontal {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-    .animate-scroll-horizontal {
-      width: max-content;
-    }
+    /* Remove old animation */
   </style>
-</section> 
+</section>
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function () {
+    const services = [
+      { title: 'Plumber', img: '/assets/services/plumber.jpeg' },
+      { title: 'Carpenter', img: '/assets/services/carpenter.jpeg' },
+      { title: 'Electrician', img: '/assets/services/electrician.jpeg' },
+      { title: 'Painter', img: '/assets/services/painter.jpeg' },
+      { title: 'Cleaner', img: '/assets/services/cleaner.jpeg' },
+      { title: 'Gardener', img: '/assets/services/gardener.jpeg' },
+      { title: 'AC Repair', img: '/assets/services/ACrepair.jpeg' },
+      { title: 'Cook', img: '/assets/services/cook.jpeg' },
+      { title: 'Babysitter', img: '/assets/services/babysitter.jpeg' },
+    ];
+    const slider = document.getElementById('service-slider');
+    const leftBtn = document.getElementById('slider-left');
+    const rightBtn = document.getElementById('slider-right');
+    let visibleCards = window.innerWidth < 768 ? 1 : 3;
+    let current = visibleCards;
+    let interval;
+
+    function renderSlider() {
+      // Remove all children
+      while (slider.firstChild) slider.removeChild(slider.firstChild);
+      // Add clones before
+      for (let i = services.length - visibleCards; i < services.length; i++) {
+        slider.appendChild(createCard(services[i]));
+      }
+      // Add originals
+      for (let i = 0; i < services.length; i++) {
+        slider.appendChild(createCard(services[i]));
+      }
+      // Add clones after
+      for (let i = 0; i < visibleCards; i++) {
+        slider.appendChild(createCard(services[i]));
+      }
+    }
+    function createCard(service) {
+      const div = document.createElement('div');
+      div.innerHTML = `<div class=\"bg-white rounded-2xl shadow border border-gray-100 flex flex-col items-start px-4 pt-4 pb-0 w-full min-w-52 mx-auto aspect-[3/4] relative overflow-hidden\"><h3 class=\"text-base font-medium mb-2 text-black z-10\">${service.title}</h3><div class=\"relative w-full\"><button class=\"mb-4 px-2 py-1 bg-white text-black rounded-lg border border-gray-200 transition-colors flex items-center gap-2 text-xs font-normal z-10 w-fit cursor-not-allowed opacity-60\" disabled>Coming soon</button></div><div class=\"absolute left-0 bottom-0 w-full h-2/3 pointer-events-none\"><div class=\"absolute left-0 bottom-0 w-full h-full rounded-bl-2xl bg-gradient-to-t from-pink-100 via-white/80 to-transparent\" style=\"filter: blur(4px);\"></div><img src=\"${service.img}\" alt=\"${service.title}\" class=\"absolute left-0 bottom-0 w-full h-full object-cover z-10\" /></div></div>`;
+      return div.firstChild;
+    }
+    function getTotal() {
+      return services.length;
+    }
+    function updateSlider(animate = true) {
+      const cardWidth = slider.children[0].offsetWidth + 40; // 40 = gap-10
+      slider.style.transition = animate ? 'transform 0.5s' : 'none';
+      slider.style.transform = `translateX(-${current * cardWidth}px)`;
+    }
+    function resetSlider() {
+      renderSlider();
+      current = visibleCards;
+      updateSlider(false);
+    }
+    leftBtn.addEventListener('click', () => {
+      current--;
+      updateSlider();
+      if (current === 0) {
+        setTimeout(() => {
+          current = getTotal();
+          updateSlider(false);
+        }, 500);
+      }
+    });
+    rightBtn.addEventListener('click', () => {
+      current++;
+      updateSlider();
+      if (current === getTotal() + visibleCards) {
+        setTimeout(() => {
+          current = visibleCards;
+          updateSlider(false);
+        }, 500);
+      }
+    });
+    window.addEventListener('resize', () => {
+      visibleCards = window.innerWidth < 768 ? 1 : 3;
+      resetSlider();
+    });
+    resetSlider();
+    // Auto-advance logic
+    function startInterval() {
+      interval = setInterval(() => {
+        rightBtn.click();
+      }, 3000);
+    }
+    function stopInterval() {
+      clearInterval(interval);
+    }
+    slider.addEventListener('mouseenter', stopInterval);
+    slider.addEventListener('mouseleave', startInterval);
+    startInterval();
+  });
+</script> 
