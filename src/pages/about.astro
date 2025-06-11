@@ -8,16 +8,16 @@ import TeamCard from "../components/TeamCard.astro";
     <!-- <body class="bg-[#f6fdff] min-h-screen"> -->
     <div class="ellipse-left"></div>
     <div class="ellipse-right"></div>
-    <section class="flex flex-col items-center py-16">
+    <section class="flex flex-col items-center py-16 text-center">
         <h1
             class="text-4xl md:text-5xl font-[Noto_Serif_Display] text-[#004346] mb-16"
         >
             About Us
         </h1>
 
-        <div class="flex gap-16 mx-auto px-24 justify-center">
+        <div class="flex flex-col md:flex-row gap-8 md:gap-16 mx-auto px-4 sm:px-8 md:px-16 lg:px-24 justify-center items-center w-full">
             <div>
-                <div class="flex flex-col gap-4 max-w-2xl text-[#004346] mb-10">
+                <div class="flex flex-col gap-4 max-w-2xl text-[#004346] mb-10 items-center text-center">
                     <p class="mb-2">
                         <span class="text-[#004346] font-semibold"
                             >Daily Bazzar</span
@@ -42,11 +42,11 @@ import TeamCard from "../components/TeamCard.astro";
                         make daily life simpler—one service at a time.
                     </p>
                 </div>
-                <div class="mb-8 flex flex-col items-start">
+                <div class="mb-8 flex flex-col items-center text-center">
                     <span class="text-[#2A9D8F] mb-2"
                         >At Daily Bazzar, we believe in building with purpose:</span
                     >
-                    <div class="flex flex-wrap gap-2 justify-start">
+                    <div class="flex flex-wrap gap-2 justify-center">
                         <span
                             class="bg-[#F0F2F4] text-[#0094BD] px-2 py-1 rounded-full text-sm font-medium flex items-center gap-1"
                             >For the People <span
@@ -93,12 +93,12 @@ import TeamCard from "../components/TeamCard.astro";
             <img
                 src="/assets/graphic02.png"
                 alt="About Us"
-                class="w-full h-full object-contain max-w-[30vw]"
+                class="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-[30vw] h-auto object-contain mt-8 md:mt-0"
             />
         </div>
 
-        <section class="w-full my-16 px-24 flex justify-center gap-16">
-            <div class="bg-[#fafdff] grow rounded-2xl shadow-md px-6 py-12 md:px-10 md:py-16 flex flex-col md:flex-row gap-12 md:gap-24 items-center justify-center border border-[#e6faff] max-w-2xl">
+        <section class="w-full my-16 px-4 sm:px-8 md:px-16 lg:px-24 flex flex-col md:flex-row justify-center gap-8 md:gap-16 items-center text-center">
+            <div class="bg-[#fafdff] grow rounded-2xl shadow-md px-4 py-8 sm:px-6 sm:py-12 md:px-10 md:py-16 flex flex-col gap-6 md:gap-12 items-center justify-center border border-[#e6faff] w-full max-w-2xl text-center">
                 <div class="flex-1 flex flex-col items-center text-center">
                     <h2 class="text-2xl md:text-3xl font-[Noto_Serif_Display] text-[#204040] mb-5">Our Mission</h2>
                     <p class="text-[#204040] text-base md:text-lg leading-relaxed">
@@ -107,7 +107,7 @@ import TeamCard from "../components/TeamCard.astro";
                   </div>
               </div>
               
-              <div class="bg-[#fafdff] grow rounded-2xl shadow-md px-6 py-12 md:px-10 md:py-16 flex flex-col md:flex-row gap-12 md:gap-24 items-center justify-center border border-[#e6faff]">
+              <div class="bg-[#fafdff] grow rounded-2xl shadow-md px-4 py-8 sm:px-6 sm:py-12 md:px-10 md:py-16 flex flex-col gap-6 md:gap-12 items-center justify-center border border-[#e6faff] w-full max-w-2xl text-center">
               <div class="flex-1 flex flex-col items-center text-center">
                 <h2 class="text-2xl md:text-3xl font-[Noto_Serif_Display] text-[#204040] mb-5">Our Vision</h2>
                 <p class="text-[#204040] text-base md:text-lg leading-relaxed">
@@ -122,7 +122,7 @@ import TeamCard from "../components/TeamCard.astro";
             <h2 class="text-2xl font-[Noto_Serif_Display] mb-8 text-center">
                 Meet the founders
             </h2>
-            <div class="flex justify-center items-center gap-4 flex-wrap">
+            <div class="flex justify-center items-center gap-4 flex-wrap text-center">
                 <TeamCard
                     name="Benjamin Doley"
                     role="Founder"
@@ -145,7 +145,7 @@ import TeamCard from "../components/TeamCard.astro";
             <h2 class="text-2xl font-[Noto_Serif_Display] mb-8 text-center">
                 Meet the Tech Team
             </h2>
-            <div class="flex justify-center items-center gap-4 flex-wrap">
+            <div class="flex justify-center items-center gap-4 flex-wrap text-center">
                 <TeamCard
                     name="Manish Kumar Das"
                     role="Tech Lead"
@@ -181,7 +181,7 @@ import TeamCard from "../components/TeamCard.astro";
             <h2 class="text-2xl font-[Noto_Serif_Display] mb-8 text-center">
                 Meet the Design Team
             </h2>
-            <div class="flex justify-center items-center gap-4 flex-wrap">
+            <div class="flex justify-center items-center gap-4 flex-wrap text-center">
                 <TeamCard
                     name="Bivob Bhuyan"
                     role="Design Lead"
@@ -204,7 +204,7 @@ import TeamCard from "../components/TeamCard.astro";
             <h2 class="text-2xl font-[Noto_Serif_Display] mb-8 text-center">
                 Meet the Operations Team
             </h2>
-            <div class="flex justify-center items-center gap-4 flex-wrap">
+            <div class="flex justify-center items-center gap-4 flex-wrap text-center">
                 <TeamCard
                     name="Jeet Saha"
                     role="Product Management Intern"
