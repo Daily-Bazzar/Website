@@ -12,14 +12,86 @@ import CustomerCTA from "../components/CustomerCTA.astro";
 <GlobalLayout>
 	<!-- <p class="bg-red-500">index page</p> -->
 	<!-- Hero Section replaced with a single image -->
-	<section class="relative w-full h-[75vh] min-h-[400px] flex items-center overflow-hidden p-0">
-		<div class="absolute z-10 flex flex-col justify-center items-start h-full -top-40 sm:left-24 left-0">
-			<h1 class="font-[Noto_Serif_Display] text-[#204040] text-4xl md:text-4xl leading-tight text-left">
-				Buy from your<br />Loved Local Shops
+	<section class="relative w-full flex items-center overflow-hidden p-0 aspect-[2.065]">
+		<div class="absolute z-10 justify-center items-start h-full top-1/2 left-1/2 -translate-x-1/2 hidden -translate-y-10 md:-translate-y-12 w-full flex flex-col items-center">
+			<h1 class="font-[Noto_Serif_Display] text-[#204040] text-md md:text-4xl text-center leading-tight max-w-40 md:max-w-md text-balance opacity-85 leading-[-20%] bg-white/70 rounded-xl px-2 py-1 md:bg-transparent md:rounded-none md:px-0 md:py-0">
+				The Online Marketplace for Local Shopping and Home Services
 			</h1>
 		</div>
-		<img src="/assets/heroimage.png" alt="Shopper and storefront hero" class="w-full h-full object-cover" />
+		<div class="w-full h-full absolute inset-0">
+			<img id="hero-carousel-img" src="/heroimage1.png" alt="Hero Carousel" class="w-full h-full object-cover transition-opacity duration-700" />
+		</div>
+		<script is:inline>
+			let images = ["/heroimage1.png", "/heroimage2.png"];
+			let idx = 0;
+			setInterval(() => {
+				idx = (idx + 1) % images.length;
+				const img = document.getElementById('hero-carousel-img');
+				if (img) {
+					img.style.opacity = 0;
+					setTimeout(() => {
+						img.src = images[idx];
+						img.style.opacity = 1;
+					}, 400);
+				}
+			}, 5000);
+		</script>
 	</section>
+	<!-- Marquee Section -->
+    <div class="relative w-full bg-[#0e5376] overflow-hidden h-8 flex items-center z-10">
+		<div class="marquee-track flex absolute left-0 top-0 h-full w-full">
+		  <div class="marquee-content whitespace-nowrap text-white text-sm font-semibold tracking-wide flex items-center" aria-hidden="true">
+			<span class="mx-8 flex items-center gap-2">
+			  <span class="text-lg">✨</span>
+			  <span>Join us as we redefine convenience, empower vendors, and make daily life simpler—one service at a time.</span>
+			  <span class="ml-3 px-2 py-0.5 rounded-full bg-white/20 text-xs font-bold flex items-center gap-1"><span class="text-yellow-300">⏳</span>Coming soon</span>
+			</span>
+			<span class="mx-8 flex items-center gap-2">
+			  <span class="text-lg">✨</span>
+			  <span>Join us as we redefine convenience, empower vendors, and make daily life simpler—one service at a time.</span>
+			  <span class="ml-3 px-2 py-0.5 rounded-full bg-white/20 text-xs font-bold flex items-center gap-1"><span class="text-yellow-300">⏳</span>Coming soon</span>
+			</span>
+			<span class="mx-8 flex items-center gap-2">
+			  <span class="text-lg">✨</span>
+			  <span>Join us as we redefine convenience, empower vendors, and make daily life simpler—one service at a time.</span>
+			  <span class="ml-3 px-2 py-0.5 rounded-full bg-white/20 text-xs font-bold flex items-center gap-1"><span class="text-yellow-300">⏳</span>Coming soon</span>
+			</span>
+		  </div>
+		  <div class="marquee-content whitespace-nowrap text-white text-sm font-semibold tracking-wide flex items-center" aria-hidden="true">
+			<span class="mx-8 flex items-center gap-2">
+			  <span class="text-lg">✨</span>
+			  <span>Join us as we redefine convenience, empower vendors, and make daily life simpler—one service at a time.</span>
+			  <span class="ml-3 px-2 py-0.5 rounded-full bg-white/20 text-xs font-bold flex items-center gap-1"><span class="text-yellow-300">⏳</span>Coming soon</span>
+			</span>
+			<span class="mx-8 flex items-center gap-2">
+			  <span class="text-lg">✨</span>
+			  <span>Join us as we redefine convenience, empower vendors, and make daily life simpler—one service at a time.</span>
+			  <span class="ml-3 px-2 py-0.5 rounded-full bg-white/20 text-xs font-bold flex items-center gap-1"><span class="text-yellow-300">⏳</span>Coming soon</span>
+			</span>
+			<span class="mx-8 flex items-center gap-2">
+			  <span class="text-lg">✨</span>
+			  <span>Join us as we redefine convenience, empower vendors, and make daily life simpler—one service at a time.</span>
+			  <span class="ml-3 px-2 py-0.5 rounded-full bg-white/20 text-xs font-bold flex items-center gap-1"><span class="text-yellow-300">⏳</span>Coming soon</span>
+			</span>
+		  </div>
+		</div>
+	  </div>
+	  <style>
+		@keyframes marquee-scroll {
+		  0% { transform: translateX(0); }
+		  100% { transform: translateX(-100%); }
+		}
+		.marquee-track {
+		  width: 200%;
+		  animation: marquee-scroll 36s linear infinite;
+		}
+		.marquee-content {
+		  width: 50%;
+		  min-width: max-content;
+		  display: flex;
+		  align-items: center;
+		}
+	  </style>
 
 	<ServicesSection />
 
