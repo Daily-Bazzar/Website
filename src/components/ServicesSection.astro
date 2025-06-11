@@ -18,17 +18,17 @@ const clonesBefore = services.slice(-SSR_VISIBLE_CARDS);
 const clonesAfter = services.slice(0, SSR_VISIBLE_CARDS);
 const sliderCards = [...clonesBefore, ...services, ...clonesAfter];
 ---
-<section class="bg-white py-24 px-8 md:px-20">
+<section class="bg-white py-24 px-2 md:px-20">
   <div class="max-w-7xl mx-auto px-4">
-    <h2 class="text-[#204040] text-4xl font-[Noto_Serif_Display] mb-10">Avail home services<br/>at low cost</h2>
+    <h2 class="text-[#204040] text-3xl lg:text-4xl font-[Noto_Serif_Display] mb-10">Avail home services<br/>at low cost</h2>
     <div class="relative overflow-x-hidden overflow-y-visible">
-      <div id="service-slider"  class="flex gap-10 transition-transform duration-500" style="transform: translateX(0);">
+      <div id="service-slider"  class="flex gap-4 md:gap-10 transition-transform duration-500" style="transform: translateX(0);">
         <!-- Cards will be rendered by JS for perfect sync -->
       </div>
-      <button id="slider-left" class="absolute left-0 top-1/2 -translate-y-1/2 bg-white border border-gray-200 rounded-full shadow p-2 z-10 hidden md:block" aria-label="Previous">
+      <button id="slider-left" class="absolute left-0 top-1/2 -translate-y-1/2 bg-white border border-gray-200 rounded-full shadow md:p-2 z-10 hidden md:block" aria-label="Previous">
         &#8592;
       </button>
-      <button id="slider-right" class="absolute right-0 top-1/2 -translate-y-1/2 bg-white border border-gray-200 rounded-full shadow p-2 z-10 hidden md:block" aria-label="Next">
+      <button id="slider-right" class="absolute right-0 top-1/2 -translate-y-1/2 bg-white border border-gray-200 rounded-full shadow md:p-2 z-10 hidden md:block" aria-label="Next">
         &#8594;
       </button>
     </div>
@@ -75,16 +75,22 @@ const sliderCards = [...clonesBefore, ...services, ...clonesAfter];
     }
     function createCard(service) {
       const div = document.createElement('div');
-      div.innerHTML = `<div class=\"bg-white rounded-2xl shadow border border-gray-100 flex flex-col items-start px-4 pt-4 pb-0 w-full min-w-52 mx-auto aspect-[3/4] relative overflow-hidden\"><h3 class=\"text-base font-medium mb-2 text-black z-10\">${service.title}</h3><div class=\"relative w-full\"><button class=\"mb-4 px-2 py-1 bg-white text-black rounded-lg border border-gray-200 transition-colors flex items-center gap-2 text-xs font-normal z-10 w-fit cursor-not-allowed opacity-60\" disabled>Coming soon</button></div><div class=\"absolute left-0 bottom-0 w-full h-2/3 pointer-events-none\"><div class=\"absolute left-0 bottom-0 w-full h-full rounded-bl-2xl bg-gradient-to-t from-pink-100 via-white/80 to-transparent\" style=\"filter: blur(4px);\"></div><img src=\"${service.img}\" alt=\"${service.title}\" class=\"absolute left-0 bottom-0 w-full h-full object-cover z-10\" /></div></div>`;
+      div.innerHTML = `<div class=\"bg-white rounded-2xl shadow border border-gray-100 flex flex-col items-start px-4 pt-4 pb-0 w-full min-w-52 aspect-[3/4] relative overflow-hidden\"><h3 class=\"text-base font-medium mb-2 text-black z-10\">${service.title}</h3><div class=\"relative w-full\"><button class=\"mb-4 px-2 py-1 bg-white text-black rounded-lg border border-gray-200 transition-colors flex items-center gap-2 text-xs font-normal z-10 w-fit cursor-not-allowed opacity-60\" disabled>Coming soon</button></div><div class=\"absolute left-0 bottom-0 w-full h-2/3 pointer-events-none\"><div class=\"absolute left-0 bottom-0 w-full h-full rounded-bl-2xl bg-gradient-to-t from-pink-100 via-white/80 to-transparent\" style=\"filter: blur(4px);\"></div><img src=\"${service.img}\" alt=\"${service.title}\" class=\"absolute left-0 bottom-0 w-full h-full object-cover z-10\" /></div></div>`;
       return div.firstChild;
     }
     function getTotal() {
       return services.length;
     }
     function updateSlider(animate = true) {
-      const cardWidth = slider.children[0].offsetWidth + 40; // 40 = gap-10
+      const cardWidth = slider.children[0].offsetWidth + (window.innerWidth < 768 ? 16 : 40); // 16 = gap-4, 40 = gap-10
       slider.style.transition = animate ? 'transform 0.5s' : 'none';
-      slider.style.transform = `translateX(-${current * cardWidth}px)`;
+      if (window.innerWidth < 768) {
+        // On mobile, start at 0 so first card is flush left
+        slider.style.transform = `translateX(-${current * cardWidth}px)`;
+      } else {
+        // On desktop, keep current logic
+        slider.style.transform = `translateX(-${current * cardWidth}px)`;
+      }
     }
     function resetSlider() {
       renderSlider();
