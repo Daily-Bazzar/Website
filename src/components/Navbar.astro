@@ -68,28 +68,26 @@ import { joinWaitlistLink } from "../config/links.ts";
     <!-- Navbar -->
     <nav class="fixed w-full bg-[#fff]" style="top: 2rem;">
       <div class="mx-auto ">
-        <div class="px-24 py-4 mx-auto w-full flex items-center justify-between backdrop-blur-lg">
-          <!-- Logo (always left) -->
-          <div class="flex items-center gap-4 flex-shrink-0">
+        <div class="px-4 md:px-24 py-4 mx-auto w-full flex items-center justify-between backdrop-blur-lg">
+          <!-- Left: Logo -->
+          <div class="flex items-center gap-4 flex-shrink-0 min-w-0">
             <a href="/" aria-label="Home">
               <img src="/assets/logogram.svg" alt="Daily Bazaar Logo" class="h-8 w-auto cursor-pointer" />
             </a>
           </div>
 
-          <!-- Nav Links (center on large screens, hidden on mobile) -->
-          <div class="hidden md:flex flex-1 items-center justify-center gap-1 text-base">
+          <!-- Center: Nav Links (centered on large screens, hidden on mobile) -->
+          <div class="hidden md:flex flex-1 items-center justify-center gap-1 text-base min-w-0">
             <a href="/" class="text-slate-600 hover:text-slate-800 font-medium font-urbanist transition-colors cursor-pointer whitespace-nowrap text-base w-fit hover:bg-[#0E5376]/15 px-4 py-1 transition-all duration-200 rounded-full">Home</a>
             <a href="/about" class="text-slate-600 hover:text-slate-800 font-medium font-urbanist transition-colors cursor-pointer whitespace-nowrap text-base w-fit hover:bg-[#0E5376]/15 px-4 py-1 transition-all duration-200 rounded-full">About us</a>
             <a href="/contact" class="text-slate-600 hover:text-slate-800 font-medium font-urbanist transition-colors cursor-pointer whitespace-nowrap text-base w-fit hover:bg-[#0E5376]/15 px-4 py-1 transition-all duration-200 rounded-full">Contact us</a>
             <a href="/blog" class="text-slate-600 hover:text-slate-800 font-medium font-urbanist transition-colors cursor-pointer whitespace-nowrap text-base w-fit hover:bg-[#0E5376]/15 px-4 py-1 transition-all duration-200 rounded-full">Blog</a>
           </div>
 
-          <!-- CTA + Hamburger (right on mobile, only CTA on desktop) -->
-          <div class="flex items-center gap-6 flex-shrink-0">
-            <a href={joinWaitlistLink} target="_blank" rel="noopener" class="px-7 py-2 bg-[#0E5376] hover:bg-linear-to-tl hover:from-[#0E5376] hover:to-[#1AF4FE]  transition-all duration-300 hover:scale-95
-
-            text-white rounded-lg font-medium font-urbanist cursor-pointer whitespace-nowrap">Join Waitlist</a>
-            <button id="navbar-hamburger" class="md:hidden flex flex-col justify-center items-center w-12 h-12 rounded hover:bg-[#0E5376]/10 transition-all" aria-label="Open Menu">
+          <!-- Right: CTA + Hamburger (always right, hamburger only on mobile) -->
+          <div class="flex items-center gap-2 md:gap-6 flex-shrink-0 min-w-0 ml-auto">
+            <a href={joinWaitlistLink} target="_blank" rel="noopener" class="hidden sm:inline-block px-5 md:px-7 py-2 bg-[#0E5376] hover:bg-linear-to-tl hover:from-[#0E5376] hover:to-[#1AF4FE]  transition-all duration-300 hover:scale-95 text-white rounded-lg font-medium font-urbanist cursor-pointer whitespace-nowrap">Join Waitlist</a>
+            <button id="navbar-hamburger" class="flex md:hidden flex-col justify-center items-center w-12 h-12 rounded hover:bg-[#0E5376]/10 transition-all" aria-label="Open Menu">
               <span class="block w-7 h-0.5 bg-[#0E5376] mb-1"></span>
               <span class="block w-7 h-0.5 bg-[#0E5376] mb-1"></span>
               <span class="block w-7 h-0.5 bg-[#0E5376]"></span>
@@ -99,20 +97,20 @@ import { joinWaitlistLink } from "../config/links.ts";
       </div>
 
       <!-- Fullscreen Mobile/Tablet Menu Overlay -->
-      <div id="navbar-mobile-menu-overlay" class="hidden fixed inset-0 bg-white z-[100] flex flex-col transition-all duration-300">
-        <div class="flex items-center justify-between px-6 py-4 border-b border-[#e6e6e6]">
-          <a href="/" aria-label="Home" class="mobile-menu-close">
-            <img src="/assets/logogram.svg" alt="Daily Bazaar Logo" class="h-8 w-auto cursor-pointer" />
+      <div id="navbar-mobile-menu-overlay" class="hidden fixed inset-0 bg-white z-[100] flex flex-col transition-all duration-300 pt-8 md:pt-0">
+        <div class="flex items-center justify-center gap-4 px-6 py-4">
+          <a href="/" aria-label="Home" class="mobile-menu-close flex-1 flex justify-center">
+            <img src="/assets/logogram.svg" alt="Daily Bazaar Logo" class="h-8 w-auto cursor-pointer mx-auto" />
           </a>
-          <button class="text-3xl text-[#0E5376] font-bold focus:outline-none mobile-menu-close" aria-label="Close Menu">&times;</button>
+          <button class="text-3xl text-[#0E5376] font-bold focus:outline-none mobile-menu-close absolute right-6" aria-label="Close Menu">&times;</button>
         </div>
         <div class="flex-1 flex flex-col justify-center items-center gap-2 px-6">
           <a href="/about" class="block w-full py-3 text-slate-700 hover:text-[#0E5376] text-lg border-b border-[#e6e6e6] text-center mobile-menu-close">About us</a>
           <a href="/contact" class="block w-full py-3 text-slate-700 hover:text-[#0E5376] text-lg border-b border-[#e6e6e6] text-center mobile-menu-close">Contact us</a>
           <a href="/blog" class="block w-full py-3 text-slate-700 hover:text-[#0E5376] text-lg border-b border-[#e6e6e6] text-center mobile-menu-close">Blog</a>
         </div>
-        <div class="px-6 pb-8">
-          <a href={joinWaitlistLink} target="_blank" rel="noopener" class="w-full px-7 py-3 bg-[#0E5376] hover:bg-[#1AF4FE]/90 text-white rounded-lg font-medium font-urbanist transition-all cursor-pointer whitespace-nowrap text-lg mobile-menu-close">Join Waitlist</a>
+        <div class="px-6 pb-8 flex justify-center">
+          <a href={joinWaitlistLink} target="_blank" rel="noopener" class="px-7 py-3 bg-[#0E5376] hover:bg-[#1AF4FE]/90 text-white rounded-lg font-medium font-urbanist transition-all cursor-pointer whitespace-nowrap text-lg mobile-menu-close">Join Waitlist</a>
         </div>
       </div>
     </nav>
