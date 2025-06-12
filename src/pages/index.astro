@@ -21,14 +21,14 @@ import CategoriesSection from "../components/CategoriesSection.astro";
 		</div>
 		<div class="w-full h-full absolute inset-0">
 			<picture>
-				<source media="(min-width: 768px)" srcset="/services-heroimage-lg.png" id="hero-carousel-img-lg" />
-				<source media="(max-width: 767px)" srcset="/services-heroimage-xs.png" id="hero-carousel-img-xs" />
-				<img id="hero-carousel-img" src="/services-heroimage-xs.png" alt="Hero Carousel" class="w-full h-full object-cover transition-opacity duration-700" />
+				<source media="(min-width: 768px)" srcset="/shopping-heroimage-lg.png" id="hero-carousel-img-lg" />
+				<source media="(max-width: 767px)" srcset="/shopping-heroimage-xs.png" id="hero-carousel-img-xs" />
+				<img id="hero-carousel-img" src="/shopping-heroimage-xs.png" alt="Hero Carousel" class="w-full h-full object-cover transition-opacity duration-700" />
 			</picture>
 		</div>
 		<script is:inline>
-			let smallImages = ["/services-heroimage-xs.png", "/shopping-heroimage-xs.png"];
-			let largeImages = ["/services-heroimage-lg.png", "/shopping-heroimage-lg.png"];
+			let smallImages = ["/shopping-heroimage-xs.png", "/services-heroimage-xs.png"];
+			let largeImages = ["/shopping-heroimage-lg.png", "/services-heroimage-lg.png"];
 			let idx = 0;
 			setInterval(() => {
 				idx = (idx + 1) % smallImages.length;
