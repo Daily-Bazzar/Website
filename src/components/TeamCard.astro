@@ -20,11 +20,11 @@ const width = sizeObj[size as keyof typeof sizeObj];
                 <p class="text-xs opacity-65 whitespace-nowrap">{role}</p>
             </div>
             <div class="flex gap-2">
-                <a href={linkedin} target="_blank">
-                    <img src="/assets/linkedin.svg" alt="LinkedIn" class="w-6 h-6 text-[#2A9D8F]" />
+                <a href={linkedin} target="_blank" class="cursor-pointer flex w-6 h-6 items-center justify-center">
+                    <img src="/assets/linkedin.svg" alt="LinkedIn" class="w-6 h-6 text-[#2A9D8F] cursor-pointer block" />
                 </a>
-                <a href={`mailto:${email}`} target="_blank">
-                    <img src="/assets/email.svg" alt="email" class="w-6 h-6 text-[#2A9D8F]" />
+                <a href={`mailto:${email}`} class="cursor-pointer flex w-6 h-6 items-center justify-center block" rel="noopener" tabindex="0" title="Send email">
+                    <img src="/assets/email.svg" alt="email" class="w-6 h-6 text-[#2A9D8F] cursor-pointer block" />
                 </a>
             </div>
         </div>
