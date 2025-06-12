@@ -12,25 +12,34 @@ import CustomerCTA from "../components/CustomerCTA.astro";
 <GlobalLayout>
 	<!-- <p class="bg-red-500">index page</p> -->
 	<!-- Hero Section replaced with a single image -->
-	<section class="relative w-full flex items-center overflow-hidden p-0 aspect-[2.065]">
+	<section class="relative w-full flex items-center overflow-hidden p-0 aspect-[2.378] md:aspect-[3.115]">
 		<div class="absolute z-10 justify-center items-start h-full top-1/2 left-1/2 -translate-x-1/2 hidden -translate-y-10 md:-translate-y-12 w-full flex flex-col items-center">
 			<h1 class="font-[Noto_Serif_Display] text-[#204040] text-md md:text-4xl text-center leading-tight max-w-40 md:max-w-md text-balance opacity-85 leading-[-20%] bg-white/70 rounded-xl px-2 py-1 md:bg-transparent md:rounded-none md:px-0 md:py-0">
 				The Online Marketplace for Local Shopping and Home Services
 			</h1>
 		</div>
 		<div class="w-full h-full absolute inset-0">
-			<img id="hero-carousel-img" src="/heroimage1.png" alt="Hero Carousel" class="w-full h-full object-cover transition-opacity duration-700" />
+			<picture>
+				<source media="(min-width: 768px)" srcset="/services-heroimage-lg.png" id="hero-carousel-img-lg" />
+				<source media="(max-width: 767px)" srcset="/services-heroimage-xs.png" id="hero-carousel-img-xs" />
+				<img id="hero-carousel-img" src="/services-heroimage-xs.png" alt="Hero Carousel" class="w-full h-full object-cover transition-opacity duration-700" />
+			</picture>
 		</div>
 		<script is:inline>
-			let images = ["/heroimage1.png", "/heroimage2.png"];
+			let smallImages = ["/services-heroimage-xs.png", "/shopping-heroimage-xs.png"];
+			let largeImages = ["/services-heroimage-lg.png", "/shopping-heroimage-lg.png"];
 			let idx = 0;
 			setInterval(() => {
-				idx = (idx + 1) % images.length;
+				idx = (idx + 1) % smallImages.length;
 				const img = document.getElementById('hero-carousel-img');
-				if (img) {
+				const imgXs = document.getElementById('hero-carousel-img-xs');
+				const imgLg = document.getElementById('hero-carousel-img-lg');
+				if (img && imgXs && imgLg) {
 					img.style.opacity = 0;
 					setTimeout(() => {
-						img.src = images[idx];
+						imgXs.srcset = smallImages[idx];
+						imgLg.srcset = largeImages[idx];
+						img.src = smallImages[idx];
 						img.style.opacity = 1;
 					}, 400);
 				}
