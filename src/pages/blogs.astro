@@ -1,0 +1,186 @@
+---
+import GlobalLayout from "../layouts/GlobalLayout.astro";
+
+// Static blog data
+const blogs = [
+    {
+        title: "Daily Bazzar – Revolutionizing Northeast India's Local Commerce",
+        description: "Discover how Daily Bazzar is bridging the gap between offline and online markets for small and medium vendors in Northeast India, offering 20-30 minute deliveries and digital transformation.",
+        publishDate: new Date('2025-08-15'),
+        keywords: [
+            "Quick commerce North-East India",
+            "Fast delivery app Jorhat",
+            "20-minute product delivery India",
+            "Local market digitalization platform",
+            "SME online marketplace India",
+            "Northeast India e-commerce startup",
+            "Mobile app for local vendors",
+            "Online shopping Jorhat",
+            "Vendor-to-customer delivery platform",
+            "Shop local North-East India",
+            "Digital platform for small businesses",
+            "Government of India digital vision",
+            "Offline to online business transformation",
+            "Same-day delivery North-East India",
+            "Best e-commerce app for local products"
+        ],
+        author: "Daily Bazzar Team",
+        slug: "revolutionizing-northeast-india-local-commerce"
+    },
+    {
+        title: "Empowering the Northeast: How Digital Platforms Are Shaping the Future of Local Businesses",
+        description: "Explore how Daily Bazzar is transforming Northeast India's business landscape through digital empowerment, hyperlocal delivery, and support for small businesses in the digital economy.",
+        publishDate: new Date('2025-08-15'),
+        keywords: [
+            "Daily Bazzar",
+            "Northeast India online shopping",
+            "small business digital platform",
+            "local vendor e-commerce",
+            "hyperlocal delivery Northeast",
+            "Daily Bazzar Technologies Private Limited",
+            "fast delivery in Northeast India",
+            "digital India mission",
+            "online market for small vendors",
+            "e-commerce for local products"
+        ],
+        author: "Daily Bazzar Team",
+        slug: "empowering-northeast-digital-platforms"
+    }
+];
+
+const sortedBlogs = blogs.sort((a, b) => b.publishDate.getTime() - a.publishDate.getTime());
+---
+
+<GlobalLayout class:list={["bg-white"]}>
+    <div class="ellipse-left"></div>
+    <div class="ellipse-right"></div>
+    <section class="flex flex-col items-center py-16 text-center">
+        <h1
+            class="text-4xl md:text-5xl font-[Noto_Serif_Display] text-[#004346] mb-16"
+        >
+            Our Blog
+        </h1>
+
+        <div class="flex flex-col gap-8 mx-auto px-4 sm:px-8 md:px-16 lg:px-24 justify-center items-center w-full relative">
+            <div class="flex flex-col gap-4 max-w-4xl text-[#004346] mb-10 items-center text-center">
+                <p class="mb-2 text-lg">
+                    Stay updated with the latest insights, stories, and developments from <span class="text-[#004346] font-semibold">Daily Bazzar</span>. 
+                    Discover how we're revolutionizing local commerce across Northeast India and empowering communities through technology.
+                </p>
+            </div>
+        </div>
+
+        <!-- Blog Posts Grid -->
+        <section class="w-full my-16 px-4 sm:px-8 md:px-16 lg:px-24">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                {sortedBlogs.map((blog) => (
+                    <article class="bg-[#fafdff] rounded-2xl shadow-md border border-[#e6faff] overflow-hidden hover:shadow-lg transition-all duration-300 group">
+                        <div class="p-6 sm:p-8">
+                            <div class="flex flex-col h-full">
+                                <div class="flex-1">
+                                    <h2 class="text-xl md:text-2xl font-[Noto_Serif_Display] text-[#204040] mb-4 group-hover:text-[#2A9D8F] transition-colors duration-300">
+                                        <a href={`/blogs/${blog.slug}`} class="hover:underline">
+                                            {blog.title}
+                                        </a>
+                                    </h2>
+                                    <p class="text-[#204040] text-sm md:text-base leading-relaxed mb-4">
+                                        {blog.description}
+                                    </p>
+                                    <div class="flex flex-wrap gap-2 mb-4">
+                                        {blog.keywords.slice(0, 3).map((keyword: string) => (
+                                            <span class="bg-[#F0F2F4] text-[#0094BD] px-2 py-1 rounded-full text-xs font-medium">
+                                                {keyword}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </div>
+                                <div class="flex justify-between items-center pt-4 border-t border-[#e6faff]">
+                                    <div class="text-sm text-[#204040]/70">
+                                        <span>{blog.publishDate.toLocaleDateString('en-US', { 
+                                            year: 'numeric', 
+                                            month: 'long', 
+                                            day: 'numeric' 
+                                        })}</span>
+                                        {blog.author && (
+                                            <span class="ml-2">• {blog.author}</span>
+                                        )}
+                                    </div>
+                                    <a 
+                                        href={`/blogs/${blog.slug}`} 
+                                        class="inline-flex items-center gap-1 text-[#2A9D8F] hover:text-[#204040] font-medium text-sm transition-colors duration-300"
+                                    >
+                                        Read More
+                                        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                ))}
+            </div>
+        </section>
+
+        <!-- Call to Action Section -->
+        <section class="w-full my-16 px-4 sm:px-8 md:px-16 lg:px-24">
+            <div class="bg-[#fafdff] rounded-2xl shadow-md px-6 py-12 sm:px-8 sm:py-16 md:px-12 md:py-20 border border-[#e6faff] max-w-4xl mx-auto text-center">
+                <h2 class="text-2xl md:text-3xl font-[Noto_Serif_Display] text-[#204040] mb-6">
+                    Join the Digital Revolution
+                </h2>
+                <p class="text-[#204040] text-base md:text-lg leading-relaxed mb-8 max-w-2xl mx-auto">
+                    Ready to be part of Northeast India's digital transformation? Whether you're a vendor looking to expand your business or a customer seeking convenient shopping, Daily Bazzar is here for you.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a 
+                        href="#waitlist" 
+                        class="bg-[#2A9D8F] text-white px-6 py-3 rounded-lg font-medium hover:bg-[#204040] transition-colors duration-300"
+                    >
+                        Join the Waitlist
+                    </a>
+                    <a 
+                        href="#list-business" 
+                        class="border border-[#2A9D8F] text-[#2A9D8F] px-6 py-3 rounded-lg font-medium hover:bg-[#2A9D8F] hover:text-white transition-all duration-300"
+                    >
+                        List Your Business
+                    </a>
+                </div>
+            </div>
+        </section>
+    </section>
+</GlobalLayout>
+
+<style>
+    .ellipse-left {
+        position: fixed;
+        top: 20vh;
+        left: -200px;
+        width: 400px;
+        height: 600px;
+        background: radial-gradient(
+            circle at 60% 40%,
+            #2a9d8f55 60%,
+            transparent 100%
+        );
+        filter: blur(60px);
+        opacity: 0.5;
+        z-index: 0;
+        pointer-events: none;
+    }
+    .ellipse-right {
+        position: fixed;
+        top: 40vh;
+        right: -200px;
+        width: 400px;
+        height: 600px;
+        background: radial-gradient(
+            circle at 40% 60%,
+            #0094bd55 60%,
+            transparent 100%
+        );
+        filter: blur(60px);
+        opacity: 0.5;
+        z-index: 0;
+        pointer-events: none;
+    }
+</style>
