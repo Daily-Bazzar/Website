@@ -1,0 +1,206 @@
+---
+import { getCollection } from 'astro:content';
+import GlobalLayout from '../../layouts/GlobalLayout.astro';
+import type { GetStaticPaths } from 'astro';
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const blogs = await getCollection('blogs');
+  return blogs.map((blog) => ({
+    params: { slug: blog.id },
+    props: { blog },
+  }));
+}
+
+const { blog } = Astro.props;
+const { Content } = await blog.render();
+---
+
+<GlobalLayout class:list={["bg-white"]}>
+    <div class="ellipse-left"></div>
+    <div class="ellipse-right"></div>
+    
+    <article class="flex flex-col items-center py-16">
+        <!-- Header Section -->
+        <div class="w-full max-w-4xl px-4 sm:px-8 md:px-16 lg:px-24 mb-16">
+            <div class="text-center mb-8">
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-[Noto_Serif_Display] text-[#004346] mb-6 leading-tight">
+                    {blog.data.title}
+                </h1>
+                <p class="text-lg md:text-xl text-[#204040] mb-6 leading-relaxed max-w-3xl mx-auto">
+                    {blog.data.description}
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 text-sm text-[#204040]/70 mb-6">
+                    <span>{blog.data.publishDate.toLocaleDateString('en-US', { 
+                        year: 'numeric', 
+                        month: 'long', 
+                        day: 'numeric' 
+                    })}</span>
+                    {blog.data.author && (
+                        <>
+                            <span class="hidden sm:inline">•</span>
+                            <span>By {blog.data.author}</span>
+                        </>
+                    )}
+                </div>
+                <div class="flex flex-wrap gap-2 justify-center">
+                    {blog.data.keywords.slice(0, 5).map((keyword: string) => (
+                        <span class="bg-[#F0F2F4] text-[#0094BD] px-3 py-1 rounded-full text-sm font-medium">
+                            {keyword}
+                        </span>
+                    ))}
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Section -->
+        <div class="w-full max-w-4xl px-4 sm:px-8 md:px-16 lg:px-24">
+            <div class="bg-[#fafdff] rounded-2xl shadow-md border border-[#e6faff] p-6 sm:p-8 md:p-12">
+                <div class="prose prose-lg max-w-none text-[#204040]">
+                    <Content />
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Section -->
+        <div class="w-full max-w-4xl px-4 sm:px-8 md:px-16 lg:px-24 mt-16">
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-4 p-6 bg-[#fafdff] rounded-xl border border-[#e6faff]">
+                <a 
+                    href="/blogs" 
+                    class="inline-flex items-center gap-2 text-[#2A9D8F] hover:text-[#204040] font-medium transition-colors duration-300"
+                >
+                    <svg class="w-4 h-4 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                    Back to Blog
+                </a>
+                <div class="flex gap-4">
+                    <a 
+                        href="#waitlist" 
+                        class="bg-[#2A9D8F] text-white px-4 py-2 rounded-lg font-medium hover:bg-[#204040] transition-colors duration-300 text-sm"
+                    >
+                        Join Waitlist
+                    </a>
+                    <a 
+                        href="#list-business" 
+                        class="border border-[#2A9D8F] text-[#2A9D8F] px-4 py-2 rounded-lg font-medium hover:bg-[#2A9D8F] hover:text-white transition-all duration-300 text-sm"
+                    >
+                        List Business
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action Section -->
+        <section class="w-full my-16 px-4 sm:px-8 md:px-16 lg:px-24">
+            <div class="bg-[#fafdff] rounded-2xl shadow-md px-6 py-12 sm:px-8 sm:py-16 md:px-12 md:py-20 border border-[#e6faff] max-w-4xl mx-auto text-center">
+                <h2 class="text-2xl md:text-3xl font-[Noto_Serif_Display] text-[#204040] mb-6">
+                    Ready to Transform Your Business?
+                </h2>
+                <p class="text-[#204040] text-base md:text-lg leading-relaxed mb-8 max-w-2xl mx-auto">
+                    Join thousands of vendors and customers who are already part of the Daily Bazzar revolution. Experience the future of local commerce today.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a 
+                        href="#waitlist" 
+                        class="bg-[#2A9D8F] text-white px-6 py-3 rounded-lg font-medium hover:bg-[#204040] transition-colors duration-300"
+                    >
+                        Get Started Now
+                    </a>
+                    <a 
+                        href="/contact" 
+                        class="border border-[#2A9D8F] text-[#2A9D8F] px-6 py-3 rounded-lg font-medium hover:bg-[#2A9D8F] hover:text-white transition-all duration-300"
+                    >
+                        Contact Us
+                    </a>
+                </div>
+            </div>
+        </section>
+    </article>
+</GlobalLayout>
+
+<style>
+    .ellipse-left {
+        position: fixed;
+        top: 20vh;
+        left: -200px;
+        width: 400px;
+        height: 600px;
+        background: radial-gradient(
+            circle at 60% 40%,
+            #2a9d8f55 60%,
+            transparent 100%
+        );
+        filter: blur(60px);
+        opacity: 0.5;
+        z-index: 0;
+        pointer-events: none;
+    }
+    .ellipse-right {
+        position: fixed;
+        top: 40vh;
+        right: -200px;
+        width: 400px;
+        height: 600px;
+        background: radial-gradient(
+            circle at 40% 60%,
+            #0094bd55 60%,
+            transparent 100%
+        );
+        filter: blur(60px);
+        opacity: 0.5;
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    /* Prose styles for blog content */
+    .prose {
+        color: #204040;
+    }
+    
+    .prose h2 {
+        color: #004346;
+        font-family: 'Noto Serif Display', serif;
+        font-size: 1.75rem;
+        font-weight: 600;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .prose h3 {
+        color: #004346;
+        font-family: 'Noto Serif Display', serif;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .prose p {
+        margin-bottom: 1.5rem;
+        line-height: 1.75;
+    }
+    
+    .prose ul, .prose ol {
+        margin-bottom: 1.5rem;
+        padding-left: 1.5rem;
+    }
+    
+    .prose li {
+        margin-bottom: 0.5rem;
+        line-height: 1.6;
+    }
+    
+    .prose strong {
+        color: #2A9D8F;
+        font-weight: 600;
+    }
+    
+    .prose a {
+        color: #2A9D8F;
+        text-decoration: underline;
+    }
+    
+    .prose a:hover {
+        color: #204040;
+    }
+</style>
