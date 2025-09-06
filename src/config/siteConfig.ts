@@ -14,7 +14,7 @@ export const siteConfig = {
   },
   applinks: {
     playstore: 'https://play.google.com/store/apps/details?id=com.dailybazzar.app',
-    apple: 'https://www.facebook.com/profile.php?id=61577861526171',
+    // apple: 'https://www.facebook.com/profile.php?id=61577861526171',
   }
 
 }; 
