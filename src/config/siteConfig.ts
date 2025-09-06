@@ -10,10 +10,10 @@ export const siteConfig = {
     Email: 'admin@dailybazzar.com',
     Phone: '+919954059514',
     Location: 'JB Road, Jorhat - 785001, Assam, India',
-    whatsapp: 'https://www.facebook.com/profile.php?id=61577861526171',
+    whatsapp: 'https://api.whatsapp.com/message/YZIZFCHTU4QYG1?autoload=1&app_absent=0',
   },
   applinks: {
-    playstore: 'https://www.facebook.com/profile.php?id=61577861526171',
+    playstore: 'https://play.google.com/store/apps/details?id=com.dailybazzar.app',
     apple: 'https://www.facebook.com/profile.php?id=61577861526171',
   }
 
