@@ -1,35 +1,126 @@
 ---
 import { siteConfig } from '../config/siteConfig';
-const { companyName, Socials } = siteConfig;
+const { companyName, Socials,applinks } = siteConfig;
 const year = new Date().getFullYear();
 ---
 
 <div>
   <footer class="w-full bg-white/90 border-t border-[#e6e6e6] py-8 px-24 mt-16 relative z-10">
-    <div class="mx-auto grid grid-cols-1 md:grid-cols-4 items-center justify-between gap-6">
+    <div class=" flex justify-between gap-6">
       <div class="flex flex-col items-center md:items-start">
         <span class="text-xl font-[Noto_Serif_Display] text-[#004346] font-bold">{companyName}</span>
         <span class="text-sm text-slate-600 mt-1">{Socials.Location}</span>
         <span class="text-sm text-slate-600">
-          <a href={`mailto:${Socials.Email}`} class="hover:text-[#0E5376] underline">{Socials.Email}</a> <br /> <a href={`tel:${Socials.Phone}`} class="hover:text-[#0E5376] underline">{Socials.Phone}</a>
+          <a href={`mailto:${Socials.Email}`} class="hover:text-[#0E5376] ">{Socials.Email}</a> <br /> <a href={`tel:${Socials.Phone}`} class="hover:text-[#0E5376] ">{Socials.Phone}</a>
         </span>
       </div>
-      <div class="flex flex-col items-center md:items-start md:col-span-2">
-        <span class="text-lg font-semibold text-[#004346] mb-2">Quick Links</span>
-        <a href="#waitlist" class="hover:text-[#0E5376] underline text-sm mb-1">Join the Waitlist</a>
-        <a href="#list-business" class="hover:text-[#0E5376] underline text-sm mb-1">List Your Business</a>
-        <a href="/about" class="hover:text-[#0E5376] underline text-sm mb-1">About Us</a>
-        <a href="/blogs" class="hover:text-[#0E5376] underline text-sm mb-1">Blog</a>
-        <a href="/contact" class="hover:text-[#0E5376] underline text-sm mb-1">Contact Us</a>
-        <a href="/terms" class="hover:text-[#0E5376] underline text-sm mb-1">Terms &amp; Conditions</a>
-        <a href="/privacy" class="hover:text-[#0E5376] underline text-sm">Privacy Policy</a>
+      <!-- <div class="flex flex-col items-center md:items-start md:col-span-2">
+        <div class="flex flex-col flex-wrap ">
+          <span class="text-lg font-semibold text-[#004346] mb-2">Quick Links</span>
+          <span class="text-lg font-semibold text-[#004346] mb-2">Policies </span>
+          <span class="text-lg font-semibold text-[#004346] mb-2">Company</span>
+        </div>
+        
+        <div class="flex flex-col flex-wrap h-5 gap-x-4">
+            
+            <br>
+            <div class="flex flex-col flex-wrap h-20 gap-x-4">
+                <a href="#waitlist" class="hover:text-[#0E5376] underline text-sm mb-1">Join the Waitlist</a>
+                  <a href="/about" class="hover:text-[#0E5376] underline text-sm mb-1">About Us</a>
+                  <a href="/blogs" class="hover:text-[#0E5376] underline text-sm mb-1">Blog</a>
+                  
+            </div>
+            
+            <br>
+            <div class="flex flex-col flex-wrap h-20 gap-x-4">
+                
+                  <a href="#list-business" class="hover:text-[#0E5376] underline text-sm mb-1">List Your Business</a>
+                  <a href="/terms" class="hover:text-[#0E5376] underline text-sm mb-1">Terms &amp; Conditions</a>
+                  <a href="/privacy" class="hover:text-[#0E5376] underline text-sm">Privacy Policy</a>
+            </div>
+            <br>
+            <div>
+                  <a href="/contact" class="hover:text-[#0E5376] underline text-sm mb-1">Contact Us</a>
+                  <br>
+                  <a href="/privacy" class="hover:text-[#0E5376] underline text-sm">Mobile Link</a>
+                  <br>
+                  <a href="/privacy" class="hover:text-[#0E5376] underline text-sm">Social Media</a>
+            </div>
+
+          </div>
+        
+      </div> -->
+      <div class=" flex justify-between gap-8 ">
+        
+          <!-- Column 1: Address / Brand -->
+
+          <!-- Column 2: Quick Links -->
+          <div class="flex flex-col">
+            <span class="text-lg font-semibold text-[#004346] mb-2">Quick Links</span>
+            <a href="#waitlist" class="hover:text-[#0E5376]  text-sm mb-1">Join the Waitlist</a>
+            
+            <a href="/blogs" class="hover:text-[#0E5376]  text-sm">Blog</a>
+          </div>
+
+          <!-- Column 3: Policies -->
+          <div class="text-center flex flex-col">
+            <span class="text-lg font-semibold text-[#004346] mb-2">Policies</span>
+            <a href="#list-business" class="hover:text-[#0E5376]  text-sm mb-1">List Your Business</a>
+            <a href="/terms" class="hover:text-[#0E5376]  text-sm mb-1">Terms &amp; Conditions</a>
+            <a href="/privacy" class="hover:text-[#0E5376]  text-sm">Privacy Policy</a>
+          </div>
+
+          <!-- Column 4: Company -->
+          <div class="flex flex-col">
+            <span class="text-lg font-semibold text-[#004346] mb-2">Company</span>
+            
+            <a href="/about" class="hover:text-[#0E5376]  text-sm mb-1">About Us</a>
+            <a href="/contact" class="hover:text-[#0E5376]  text-sm mb-1">Contact Us</a>
+            <!-- <a href="/privacy" class="hover:text-[#0E5376] underline text-sm mb-1">Mobile App Link</a>
+            <a href="/media" class="hover:text-[#0E5376] underline text-sm">Social Media</a> -->
+          </div>
+
+        </div>
+
+        <div class="flex gap-4">
+          <!-- Column 5: Social Media -->
+          <div class="flex flex-col ">
+            <span class="text-lg text-center font-semibold text-[#004346] mb-2">Follow Us</span>
+              <div class="flex gap-1 mt-1 items-center">
+                <a href={Socials.xSocial} target="_blank" rel="noopener">
+                  <img class="h-7 w-7" src="/x.png" alt="X">
+                </a>
+                <a href={Socials.Instagram} target="_blank" rel="noopener">
+                  <img class="h-7 w-7" src="/instagram.png" alt="Instagram">
+                </a>
+                <a href={Socials.whatsapp} target="_blank" rel="noopener">
+                  <img class="h-7 w-7" src="/whatsapps.png" alt="Whatsapp">
+                </a>
+                <a href={Socials.Facebook} target="_blank" rel="noopener">
+                  <img class="h-7 w-7" src="/facebook.png" alt="facebook">
+                </a>
+                <a href={Socials.LinkedIn} target="_blank" rel="noopener">
+                  <img class="h-7 w-7" src="/linkedin.png" alt="facebook">
+                </a>
+              </div>
+          </div>
+          <!-- Column 5: app link -->
+          <div class="flex flex-col ">
+            <!-- <span class="text-lg font-semibold text-[#004346] mb-2">App Link</span> -->
+            <div class="flex flex-col gap-3 mt-2 items-center flex-wrap">
+              <a href={applinks.playstore} target="_blank" rel="noopener">
+                <img class="max-h-16" src="/playstore.png" alt="playstore">
+              </a>
+              <!-- <a href={applinks.apple} target="_blank" rel="noopener">
+                <img class="max-h-16" src="/apple.png" alt="apple">
+              </a> -->
+            </div>
+          </div>
+        </div>
+          
+
       </div>
-      <div class="flex gap-4 flex-wrap items-center justify-center">
-        <a href={Socials.xSocial} target="_blank" rel="noopener" class="hover:text-[#0E5376] underline text-sm">X</a>
-        <!-- <a href={Socials.Github} target="_blank" rel="noopener" class="hover:text-[#0E5376] underline text-sm">GitHub</a> -->
-        <a href={Socials.Instagram} target="_blank" rel="noopener" class="hover:text-[#0E5376] underline text-sm">Instagram</a>
-        <a href={Socials.LinkedIn} target="_blank" rel="noopener" class="hover:text-[#0E5376] underline text-sm">LinkedIn</a>
-      </div>
+
     </div>
     <div class="text-center text-xs text-slate-400 mt-6">
       &copy; {year} {companyName}. All rights reserved.
