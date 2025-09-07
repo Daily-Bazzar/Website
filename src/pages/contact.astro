@@ -21,13 +21,47 @@ import { siteConfig } from "../config/siteConfig";
         <span class="font-semibold text-[#004346] w-28">Location:</span>
         <span class="text-slate-700">{siteConfig.Socials.Location}</span>
       </div>
-      <div>
-        <span class="font-semibold text-[#004346]">Social:</span>
-        <div class="flex flex-wrap gap-4 mt-2">
-          <a href={siteConfig.Socials.xSocial} target="_blank" rel="noopener" class="hover:text-[#0E5376] underline">X (Twitter)</a>
-          <a href={siteConfig.Socials.Instagram} target="_blank" rel="noopener" class="hover:text-[#0E5376] underline">Instagram</a>
-          <a href={siteConfig.Socials.LinkedIn} target="_blank" rel="noopener" class="hover:text-[#0E5376] underline">LinkedIn</a>
+      <!-- <div>
+        <span class="grid grid-flow-col justify-items-center font-semibold text-[#004346]"> Social:</span>
+        <div class="flex gap-1 mt-1 items-center">
+                <a href={siteConfig.Socials.xSocial} target="_blank" rel="noopener">
+                  <img class="h-7 w-7" src="/x.png" alt="X">
+                </a>
+                <a href={siteConfig.Socials.Instagram} target="_blank" rel="noopener">
+                  <img class="h-7 w-7" src="/instagram.png" alt="Instagram">
+                </a>
+                <a href={siteConfig.Socials.whatsapp} target="_blank" rel="noopener">
+                  <img class="h-7 w-7" src="/whatsapps.png" alt="Whatsapp">
+                </a>
+                <a href={siteConfig.Socials.Facebook} target="_blank" rel="noopener">
+                  <img class="h-7 w-7" src="/facebook.png" alt="facebook">
+                </a>
+                <a href={siteConfig.Socials.LinkedIn} target="_blank" rel="noopener">
+                  <img class="h-7 w-7" src="/linkedin.png" alt="facebook">
+                </a>
+          </div>
+        -->
+        <div class="flex flex-col items-center mt-2">
+          <span class="font-semibold text-[#004346] mb-1">Social:</span>
+          <div class="flex gap-2 justify-center items-center">
+            <a href={siteConfig.Socials.xSocial} target="_blank" rel="noopener">
+              <img class="h-7 w-7" src="/x.png" alt="X">
+            </a>
+            <a href={siteConfig.Socials.Instagram} target="_blank" rel="noopener">
+              <img class="h-7 w-7" src="/instagram.png" alt="Instagram">
+            </a>
+            <a href={siteConfig.Socials.whatsapp} target="_blank" rel="noopener">
+              <img class="h-7 w-7" src="/whatsapps.png" alt="Whatsapp">
+            </a>
+            <a href={siteConfig.Socials.Facebook} target="_blank" rel="noopener">
+              <img class="h-7 w-7" src="/facebook.png" alt="Facebook">
+            </a>
+            <a href={siteConfig.Socials.LinkedIn} target="_blank" rel="noopener">
+              <img class="h-7 w-7" src="/linkedin.png" alt="LinkedIn">
+            </a>
+          </div>
         </div>
+
       </div>
     </div>
   </section>
