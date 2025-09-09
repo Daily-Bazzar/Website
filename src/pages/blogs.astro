@@ -1,4 +1,5 @@
 ---
+import { extractDirectives } from "astro/runtime/server/hydration.js";
 import GlobalLayout from "../layouts/GlobalLayout.astro";
 
 // Static blog data
@@ -96,6 +97,24 @@ const blogs = [
         ],
         author: "Daily Bazzar Team",
         slug: "beyond-groceries"
+    },
+    {
+        
+        title: "How Young Entrepreneurs Can Drive the Startup Culture in Northeast India – And How DailyBazzar Is Leading the Way",
+        
+        description: "Young entrepreneurs are shaping Northeast India’s startup culture by solving local problems. DailyBazzar leads this movement, empowering vendors, creating jobs, and driving hyperlocal digital innovation.",
+        publishDate: new Date('2025-09-10'),
+        keywords: [
+            "Startup Culture Northeast India",
+            "Young Entrepreneurs Assam",
+            "Daily Bazzar Startup",
+            "Startup Ecosystem Northeast",
+            "Hyperlocal Business Jorhat",
+            "Digital Marketplace Northeast"
+            
+        ],
+        author: "Daily Bazzar Team",
+        slug: "how-young-entrepreneurs-drive"
     }
 ];
 
